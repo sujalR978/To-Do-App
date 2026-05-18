@@ -16,7 +16,6 @@ class RegisterScreen extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 243, 239, 239),
         body: Center(
-          
           child: Column(
             children: [
               Padding(
@@ -252,6 +251,35 @@ class RegisterScreen extends StatelessWidget {
                             textStyle: TextStyle(color: Colors.black),
                           ),
                         ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        child: Row(
+                          children: [
+                            Expanded(child: Divider(thickness: 1)),
+                            Opacity(
+                              opacity: 0.5,
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 10),
+                                child: Text(
+                                  "OR CONTINUE WITH",
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                              ),
+                            ),
+
+                            Expanded(child: Divider(thickness: 1)),
+                          ],
+                        ),
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 20),
+                        child: ElevatedButton(onPressed: (){}, child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            
+                            
+                          ],
+                        )),
                       ),
                     ],
                   ),
