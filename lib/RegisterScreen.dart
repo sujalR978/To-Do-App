@@ -104,10 +104,63 @@ class RegisterScreen extends StatelessWidget {
                         ),
                       ),
 
-                     Align(
-                      child: Padding(padding: EdgeInsets.only(top: 25,left: 20,bottom: 5),
-                      child: Text('Email'),),
-                     )
+                      Align(
+                        alignment: AlignmentGeometry.bottomLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            top: 25,
+                            left: 20,
+                            bottom: 5,
+                          ),
+                          child: Text(
+                            'Email',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 15, right: 15),
+                        child: TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          autofillHints: [AutofillHints.email],
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Color.fromARGB(246, 232, 232, 250),
+                            hintText: 'Enter Email here',
+                            prefixIcon: Icon(Icons.email),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide.none,
+                            ),
+                          ),
+                        ),
+                      ),
+
+                      Align(
+                        alignment: AlignmentGeometry.bottomLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(
+                            top: 25,
+                            left: 20,
+                            bottom: 5,
+                          ),
+                          child: Text(
+                            'Password',
+                            style: TextStyle(
+                              fontWeight: FontWeight(500),
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(padding: EdgeInsetsGeometry.only(left: 15,right: 15),
+                      child: TextFormField(
+
+                      ),
+                      )
                     ],
                   ),
                 ),
