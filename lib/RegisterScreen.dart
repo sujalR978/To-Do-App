@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ class RegisterScreen extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Color.fromARGB(255, 243, 239, 239),
         body: Center(
+          
           child: Column(
             children: [
               Padding(
@@ -122,8 +124,20 @@ class RegisterScreen extends StatelessWidget {
                       ),
                       Padding(
                         padding: EdgeInsets.only(right: 15, left: 15),
-                        child: TextFormField(keyboardType: TextInputType.name),
-                          
+                        child: TextFormField(
+                          keyboardType: TextInputType.name,
+
+                          decoration: InputDecoration(
+                            fillColor: Color.fromARGB(246, 232, 232, 250),
+                            filled: true,
+                            hintText: 'Enter Your Profession',
+                            prefixIcon: Icon(Icons.work),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide.none,
+                            ),
+                          ),
+                        ),
                       ),
                       Align(
                         alignment: AlignmentGeometry.bottomLeft,
@@ -178,7 +192,11 @@ class RegisterScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsetsGeometry.only(left: 15, right: 15),
+                        padding: EdgeInsetsGeometry.only(
+                          left: 15,
+                          right: 15,
+                          bottom: 45,
+                        ),
                         child: TextFormField(
                           keyboardType: TextInputType.visiblePassword,
                           decoration: InputDecoration(
@@ -190,6 +208,48 @@ class RegisterScreen extends StatelessWidget {
                               borderRadius: BorderRadius.circular(15),
                               borderSide: BorderSide.none,
                             ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 25),
+                        child: ElevatedButton(
+                          onPressed: () {
+                            print('button pressed!');
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                'Sing Up',
+                                style: TextStyle(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    255,
+                                    255,
+                                    255,
+                                  ),
+                                  fontSize: 17,
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              Container(
+                                height: 20,
+                                width: 18,
+                                child: Image.asset(('assets/images/arrow.png')),
+                              ),
+                            ],
+                          ),
+
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: Size(350, 50),
+                            backgroundColor: const Color.fromARGB(
+                              255,
+                              75,
+                              52,
+                              177,
+                            ),
+                            textStyle: TextStyle(color: Colors.black),
                           ),
                         ),
                       ),
