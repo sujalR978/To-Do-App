@@ -103,6 +103,11 @@ class RegisterScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+
+                     Align(
+                      child: Padding(padding: EdgeInsets.only(top: 25,left: 20,bottom: 5),
+                      child: Text('Email'),),
+                     )
                     ],
                   ),
                 ),
