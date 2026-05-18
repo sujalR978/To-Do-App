@@ -282,37 +282,145 @@ class RegisterScreen extends StatelessWidget {
                             ),
                           ),
                           Padding(
-                            padding: EdgeInsets.only(top: 20, bottom: 35),
-                            child: ElevatedButton(
-                              onPressed: () {
-                                print('pressed');
-                              },
+                            padding: const EdgeInsets.only(left: 30, right: 25),
+                            child: Row(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(top: 20, bottom: 35),
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      print('pressed');
+                                    },
 
-                              style: ElevatedButton.styleFrom(
-                                fixedSize: Size(150, 50),
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadiusGeometry.circular(
-                                    10,
-                                  ),
-                                ),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Container(
-                                    height: 25,
-                                    width: 25,
-                                    child: Image.asset(
-                                      'assets/images/google.png',
+                                    style: ElevatedButton.styleFrom(
+                                      fixedSize: Size(150, 50),
+                                      backgroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadiusGeometry.circular(10),
+                                      ),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Container(
+                                          height: 25,
+                                          width: 25,
+                                          child: Image.asset(
+                                            'assets/images/google.png',
+                                          ),
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          'Google',
+                                          style: TextStyle(fontSize: 18),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  SizedBox(width: 10),
-                                  Text(
-                                    'Google',
-                                    style: TextStyle(fontSize: 18),
+                                ),
+                                SizedBox(width: 20),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 20, bottom: 35),
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      print('pressed');
+                                    },
+
+                                    style: ElevatedButton.styleFrom(
+                                      fixedSize: Size(150, 50),
+                                      backgroundColor: Colors.white,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadiusGeometry.circular(10),
+                                      ),
+                                    ),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Container(
+                                          height: 25,
+                                          width: 25,
+                                          child: Image.asset(
+                                            'assets/images/ios.png',
+                                          ),
+                                        ),
+                                        SizedBox(width: 10),
+                                        Text(
+                                          'Apple',
+                                          style: TextStyle(fontSize: 18),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+                  Padding(
+                    padding: EdgeInsets.only(top: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Already have an account? ',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Log in ',
+                            style: TextStyle(
+                              color: const Color.fromARGB(255, 33, 51, 243),
+                              fontSize: 18,
+                              fontWeight: FontWeight(400),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Padding(
+                    padding: EdgeInsets.only(top: 40),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+
+                      children: [
+                        Opacity(
+                          opacity: 0.5,
+                          child: Text('By signing up, you agree to our '),
+                        ),
+                        Opacity(
+                          opacity: 0.5,
+                          child: Text(
+                            'Terms of Service ',
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Opacity(opacity: 0.5, child: Text('and ')),
+                          Opacity(
+                            opacity: 0.5,
+                            child: Text(
+                              'Privacy Policy. ',
+                              style: TextStyle(
+                                decoration: TextDecoration.underline,
                               ),
                             ),
                           ),
