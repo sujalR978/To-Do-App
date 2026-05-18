@@ -103,7 +103,28 @@ class RegisterScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-
+                      Align(
+                        alignment: AlignmentGeometry.bottomLeft,
+                        child: Padding(
+                          padding: EdgeInsetsGeometry.only(
+                            top: 25,
+                            left: 20,
+                            bottom: 5,
+                          ),
+                          child: Text(
+                            'Profession',
+                            style: TextStyle(
+                              fontWeight: FontWeight(500),
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: 15, left: 15),
+                        child: TextFormField(keyboardType: TextInputType.name),
+                          
+                      ),
                       Align(
                         alignment: AlignmentGeometry.bottomLeft,
                         child: Padding(
@@ -129,7 +150,7 @@ class RegisterScreen extends StatelessWidget {
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Color.fromARGB(246, 232, 232, 250),
-                            hintText: 'Enter Email here',
+                            hintText: 'Enter Email here...',
                             prefixIcon: Icon(Icons.email),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15),
@@ -156,11 +177,22 @@ class RegisterScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(padding: EdgeInsetsGeometry.only(left: 15,right: 15),
-                      child: TextFormField(
-
+                      Padding(
+                        padding: EdgeInsetsGeometry.only(left: 15, right: 15),
+                        child: TextFormField(
+                          keyboardType: TextInputType.visiblePassword,
+                          decoration: InputDecoration(
+                            hintText: 'Enter Password here...',
+                            fillColor: Color.fromARGB(246, 232, 232, 250),
+                            filled: true,
+                            prefixIcon: Icon(Icons.password),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide.none,
+                            ),
+                          ),
+                        ),
                       ),
-                      )
                     ],
                   ),
                 ),
