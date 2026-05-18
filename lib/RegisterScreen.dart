@@ -272,14 +272,23 @@ class RegisterScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Padding(padding: EdgeInsets.only(top: 20),
-                        child: ElevatedButton(onPressed: (){}, child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            
-                            
-                          ],
-                        )),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Container(
+                                height: 20,
+                                width: 20,
+                                child: Image.asset('assets/images/google.png'),
+                              ),
+                              SizedBox(width: 10),
+                              Text('Google'),
+                            ],
+                          ),
+                        ),
                       ),
                     ],
                   ),
