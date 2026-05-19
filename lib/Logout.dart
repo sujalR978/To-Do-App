@@ -58,7 +58,25 @@ class Logout extends StatelessWidget {
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
 
-                  style: ElevatedButton.styleFrom(fixedSize: Size(350, 50)),
+                  style: ElevatedButton.styleFrom(
+                    fixedSize: Size(350, 50),
+                    backgroundColor: const Color.fromARGB(255, 75, 52, 177),
+                  ),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  'Cancel',
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: const Color.fromARGB(255, 0, 0, 0),
+                  ),
+                ),
+
+                style: ElevatedButton.styleFrom(
+                  fixedSize: Size(350, 50),
+                  backgroundColor: const Color.fromARGB(246, 232, 232, 250),
                 ),
               ),
             ],
