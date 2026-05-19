@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -77,6 +76,27 @@ class Logout extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(350, 50),
                   backgroundColor: const Color.fromARGB(246, 232, 232, 250),
+                ),
+              ),
+
+              Opacity(
+                opacity: 0.5,
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          border: Border.all(width: 2.0, color: Colors.black),
+                        ),
+                        child: Icon(Icons.person_4_outlined, size: 15),
+                      ),
+                      SizedBox(width: 7),
+                      Text('Logged in as user@example.com'),
+                    ],
+                  ),
                 ),
               ),
             ],
