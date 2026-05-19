@@ -13,257 +13,273 @@ class LoginScreen extends StatelessWidget {
       home: Scaffold(
         backgroundColor: const Color.fromARGB(255, 234, 230, 230),
         body: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 20, top: 80, bottom: 16),
-                child: Container(
-                  width: 150,
-                  child: Text(
-                    'Welcome back. Ready for focus?',
-                    style: TextStyle(fontSize: 18),
-                    maxLines: 2,
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 20, top: 80, bottom: 16),
+                  child: Container(
+                    width: 150,
+                    child: Text(
+                      'Welcome back. Ready for focus?',
+                      style: TextStyle(fontSize: 18),
+                      maxLines: 2,
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(left: 20, bottom: 25),
-                child: Container(
-                  width: 300,
-                  child: Text(
-                    'The minimalist path to your most productive day starts here.',
-                    style: TextStyle(fontSize: 18),
+                Padding(
+                  padding: EdgeInsets.only(left: 20, bottom: 25),
+                  child: Container(
+                    width: 300,
+                    child: Text(
+                      'The minimalist path to your most productive day starts here.',
+                      style: TextStyle(fontSize: 18),
+                    ),
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15),
-                child: Container(
-                  width: 400,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 255, 255, 255),
-                    borderRadius: BorderRadius.circular(25),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.5),
-                        spreadRadius: 1,
-                        offset: Offset(0, 5),
-                        blurRadius: 7,
-                      ),
-                    ],
-                  ),
-
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 20, top: 25, bottom: 10),
-                        child: Text(
-                          'Email Address',
-                          style: TextStyle(fontWeight: FontWeight(500)),
+                Padding(
+                  padding: const EdgeInsets.only(left: 15, right: 15),
+                  child: Container(
+                    width: 400,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(25),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.5),
+                          spreadRadius: 1,
+                          offset: Offset(0, 5),
+                          blurRadius: 7,
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15, right: 15),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'Enter Email here...',
-                            fillColor: Color.fromARGB(246, 232, 232, 250),
-                            filled: true,
-                            prefixIcon: Icon(Icons.email),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
+                      ],
+                    ),
+
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: 20,
+                            top: 25,
+                            bottom: 10,
                           ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 15, left: 20),
-                        child: Row(
-                          children: [
-                            Text(
-                              'Password',
-                              style: TextStyle(fontWeight: FontWeight(500)),
-                            ),
-
-                            SizedBox(width: 150),
-                            TextButton(
-                              onPressed: () {},
-
-                              child: Text(
-                                'Forget Password?',
-                                style: TextStyle(
-                                  color: const Color.fromARGB(255, 68, 87, 255),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 15, right: 15),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            hintText: 'Enter password here...',
-                            filled: true,
-                            prefixIcon: Icon(Icons.password),
-                            fillColor: Color.fromARGB(246, 232, 232, 250),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(15),
-                              borderSide: BorderSide.none,
-                            ),
-                          ),
-                        ),
-                      ),
-
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: 15,
-                          right: 15,
-                          top: 25,
-                          bottom: 20,
-                        ),
-                        child: ElevatedButton(
-                          onPressed: () {},
                           child: Text(
-                            'Sing In',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight(400),
-                            ),
-                          ),
-
-                          style: ElevatedButton.styleFrom(
-                            fixedSize: Size(350, 50),
-                            backgroundColor: const Color.fromARGB(
-                              255,
-                              75,
-                              52,
-                              177,
-                            ),
+                            'Email Address',
+                            style: TextStyle(fontWeight: FontWeight(500)),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(top: 5, left: 20, right: 20),
-
-                        child: Row(
-                          children: [
-                            Expanded(child: Divider(thickness: 1)),
-                            Opacity(
-                              opacity: 0.5,
-
-                              child: Text(
-                                "OR CONTINUE WITH",
-                                style: TextStyle(fontSize: 18),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15, right: 15),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              hintText: 'Enter Email here...',
+                              fillColor: Color.fromARGB(246, 232, 232, 250),
+                              filled: true,
+                              prefixIcon: Icon(Icons.email),
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide.none,
+                                borderRadius: BorderRadius.circular(15),
                               ),
                             ),
-                            Expanded(child: Divider(thickness: 1)),
-                          ],
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: 20,
-                          left: 40,
-                          right: 40,
-                          bottom: 40,
-                        ),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            ElevatedButton(
-                              onPressed: () {},
-
-                              style: ElevatedButton.styleFrom(
-                                fixedSize: Size(140, 50),
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadiusGeometry.circular(
-                                    10,
-                                  ),
-                                ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 15, left: 20),
+                          child: Row(
+                            children: [
+                              Text(
+                                'Password',
+                                style: TextStyle(fontWeight: FontWeight(500)),
                               ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 20,
-                                    child: Image.asset(
-                                      'assets/images/google.png',
+
+                              SizedBox(width: 180),
+                              TextButton(
+                                onPressed: () {},
+
+                                child: Text(
+                                  'Forget Password?',
+                                  style: TextStyle(
+                                    color: const Color.fromARGB(
+                                      255,
+                                      68,
+                                      87,
+                                      255,
                                     ),
                                   ),
-                                  SizedBox(width: 7),
-
-                                  Text(
-                                    'Google',
-                                    style: TextStyle(fontSize: 18),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(width: 20),
-                            ElevatedButton(
-                              onPressed: () {},
-
-                              style: ElevatedButton.styleFrom(
-                                fixedSize: Size(140, 50),
-                                backgroundColor: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadiusGeometry.circular(
-                                    10,
-                                  ),
                                 ),
                               ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    width: 20,
-                                    child: Image.asset('assets/images/ios.png'),
-                                  ),
-                                  SizedBox(width: 7),
-
-                                  Text('Apple', style: TextStyle(fontSize: 18)),
-                                ],
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 15, right: 15),
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              hintText: 'Enter password here...',
+                              filled: true,
+                              prefixIcon: Icon(Icons.password),
+                              fillColor: Color.fromARGB(246, 232, 232, 250),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(15),
+                                borderSide: BorderSide.none,
                               ),
                             ),
-                          ],
+                          ),
+                        ),
+
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: 15,
+                            right: 15,
+                            top: 25,
+                            bottom: 20,
+                          ),
+                          child: ElevatedButton(
+                            onPressed: () {},
+                            child: Text(
+                              'Sing In',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight(400),
+                              ),
+                            ),
+
+                            style: ElevatedButton.styleFrom(
+                              fixedSize: Size(350, 50),
+                              backgroundColor: const Color.fromARGB(
+                                255,
+                                75,
+                                52,
+                                177,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: 5, left: 20, right: 20),
+
+                          child: Row(
+                            children: [
+                              Expanded(child: Divider(thickness: 1)),
+                              Opacity(
+                                opacity: 0.5,
+
+                                child: Text(
+                                  "OR CONTINUE WITH",
+                                  style: TextStyle(fontSize: 18),
+                                ),
+                              ),
+                              Expanded(child: Divider(thickness: 1)),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            top: 20,
+                            left: 40,
+                            right: 40,
+                            bottom: 40,
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              ElevatedButton(
+                                onPressed: () {},
+
+                                style: ElevatedButton.styleFrom(
+                                  fixedSize: Size(140, 50),
+                                  backgroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadiusGeometry.circular(
+                                      10,
+                                    ),
+                                  ),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 20,
+                                      child: Image.asset(
+                                        'assets/images/google.png',
+                                      ),
+                                    ),
+                                    SizedBox(width: 7),
+
+                                    Text(
+                                      'Google',
+                                      style: TextStyle(fontSize: 18),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 20),
+                              ElevatedButton(
+                                onPressed: () {},
+
+                                style: ElevatedButton.styleFrom(
+                                  fixedSize: Size(140, 50),
+                                  backgroundColor: Colors.white,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadiusGeometry.circular(
+                                      10,
+                                    ),
+                                  ),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 20,
+                                      child: Image.asset(
+                                        'assets/images/ios.png',
+                                      ),
+                                    ),
+                                    SizedBox(width: 7),
+
+                                    Text(
+                                      'Apple',
+                                      style: TextStyle(fontSize: 18),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 25),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Don't have an account?",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight(400),
+                        ),
+                      ),
+
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Create an Account',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: const Color.fromARGB(255, 68, 87, 255),
+                            fontWeight: FontWeight(600),
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 25),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Don't have an account?",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight(400),
-                      ),
-                    ),
-
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Create an Account',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: const Color.fromARGB(255, 68, 87, 255),
-                          fontWeight: FontWeight(600),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
