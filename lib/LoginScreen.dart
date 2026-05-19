@@ -80,15 +80,27 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 15, left: 20,bottom: 5),
+                        padding: EdgeInsets.only(top: 15, left: 20, bottom: 5),
                         child: Text(
                           'Password',
                           style: TextStyle(fontWeight: FontWeight(500)),
                         ),
                       ),
-                      Padding(padding: EdgeInsets.only(left: 15,right: 15),
-                      
-                      )
+                      Padding(
+                        padding: EdgeInsets.only(left: 15, right: 15),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: 'Enter password here...',
+                            filled: true,
+                            prefixIcon: Icon(Icons.password),
+                            fillColor: Color.fromARGB(246, 232, 232, 250),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(15),
+                              borderSide: BorderSide.none,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
