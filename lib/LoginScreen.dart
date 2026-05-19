@@ -58,7 +58,7 @@ class LoginScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: EdgeInsets.only(left: 20, top: 25, bottom: 5),
+                        padding: EdgeInsets.only(left: 20, top: 25, bottom: 10),
                         child: Text(
                           'Email Address',
                           style: TextStyle(fontWeight: FontWeight(500)),
@@ -80,10 +80,26 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 15, left: 20, bottom: 5),
-                        child: Text(
-                          'Password',
-                          style: TextStyle(fontWeight: FontWeight(500)),
+                        padding: EdgeInsets.only(top: 15, left: 20),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Password',
+                              style: TextStyle(fontWeight: FontWeight(500)),
+                            ),
+
+                            SizedBox(width: 150),
+                            TextButton(
+                              onPressed: () {},
+
+                              child: Text(
+                                'Forget Password?',
+                                style: TextStyle(
+                                  color: const Color.fromARGB(255, 68, 87, 255),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                       Padding(
@@ -101,6 +117,39 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 15,
+                          right: 15,
+                          top: 25,
+                          bottom: 20,
+                        ),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Sing In',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight(400),
+                            ),
+                          ),
+
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: Size(350, 50),
+                            backgroundColor: const Color.fromARGB(
+                              255,
+                              75,
+                              52,
+                              177,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(padding: EdgeInsets.only(top: 5)
+                        
+                      )
                     ],
                   ),
                 ),
