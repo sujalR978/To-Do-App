@@ -40,7 +40,7 @@ class LoginScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Container(
-                  
+                  width: 400,
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     borderRadius: BorderRadius.circular(25),
@@ -54,10 +54,43 @@ class LoginScreen extends StatelessWidget {
                     ],
                   ),
 
-                  child: Padding(padding: EdgeInsets.only(
-                    
-                  )),
-
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 20, top: 25, bottom: 5),
+                        child: Text(
+                          'Email Address',
+                          style: TextStyle(fontWeight: FontWeight(500)),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15, right: 15),
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                            hintText: 'Enter Email here...',
+                            fillColor: Color.fromARGB(246, 232, 232, 250),
+                            filled: true,
+                            prefixIcon: Icon(Icons.email),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 15, left: 20,bottom: 5),
+                        child: Text(
+                          'Password',
+                          style: TextStyle(fontWeight: FontWeight(500)),
+                        ),
+                      ),
+                      Padding(padding: EdgeInsets.only(left: 15,right: 15),
+                      
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
