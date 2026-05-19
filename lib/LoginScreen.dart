@@ -40,11 +40,24 @@ class LoginScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Container(
-                  height: 200,
+                  
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(255, 255, 255, 255),
                     borderRadius: BorderRadius.circular(25),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.5),
+                        spreadRadius: 1,
+                        offset: Offset(0, 5),
+                        blurRadius: 7,
+                      ),
+                    ],
                   ),
+
+                  child: Padding(padding: EdgeInsets.only(
+                    
+                  )),
+
                 ),
               ),
             ],
