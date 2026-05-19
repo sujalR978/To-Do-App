@@ -11,13 +11,44 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Padding(
-          padding: EdgeInsetsGeometry.only(left: 20),
-          child: Container(
-            width: 150,
-            
-            child: Text('Welcome back. Ready for focus?')),
-          
+        backgroundColor: const Color.fromARGB(255, 234, 230, 230),
+        body: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 20, top: 20, bottom: 16),
+                child: Container(
+                  width: 150,
+                  child: Text(
+                    'Welcome back. Ready for focus?',
+                    style: TextStyle(fontSize: 18),
+                    maxLines: 2,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(left: 20, bottom: 25),
+                child: Container(
+                  width: 300,
+                  child: Text(
+                    'The minimalist path to your most productive day starts here.',
+                    style: TextStyle(fontSize: 18),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                child: Container(
+                  height: 200,
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 255, 255, 255),
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
