@@ -166,13 +166,20 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+                        padding: EdgeInsets.only(
+                          top: 20,
+                          left: 40,
+                          right: 40,
+                          bottom: 40,
+                        ),
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             ElevatedButton(
                               onPressed: () {},
-                             
+
                               style: ElevatedButton.styleFrom(
+                                fixedSize: Size(140, 50),
                                 backgroundColor: Colors.white,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadiusGeometry.circular(
@@ -180,17 +187,80 @@ class LoginScreen extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                               child: Row(
+                              child: Row(
                                 children: [
-                                  Image.asset('assets/images/google.png')
+                                  Container(
+                                    width: 20,
+                                    child: Image.asset(
+                                      'assets/images/google.png',
+                                    ),
+                                  ),
+                                  SizedBox(width: 7),
+
+                                  Text(
+                                    'Google',
+                                    style: TextStyle(fontSize: 18),
+                                  ),
                                 ],
-                               ),
+                              ),
+                            ),
+                            SizedBox(width: 20),
+                            ElevatedButton(
+                              onPressed: () {},
+
+                              style: ElevatedButton.styleFrom(
+                                fixedSize: Size(140, 50),
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
+                                  ),
+                                ),
+                              ),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    width: 20,
+                                    child: Image.asset('assets/images/ios.png'),
+                                  ),
+                                  SizedBox(width: 7),
+
+                                  Text('Apple', style: TextStyle(fontSize: 18)),
+                                ],
+                              ),
                             ),
                           ],
                         ),
                       ),
                     ],
                   ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 25),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Don't have an account?",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight(400),
+                      ),
+                    ),
+
+                    TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Create an Account',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: const Color.fromARGB(255, 68, 87, 255),
+                          fontWeight: FontWeight(600),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
