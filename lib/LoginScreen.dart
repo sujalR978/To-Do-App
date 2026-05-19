@@ -147,9 +147,48 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Padding(padding: EdgeInsets.only(top: 5)
-                        
-                      )
+                      Padding(
+                        padding: EdgeInsets.only(top: 5, left: 20, right: 20),
+
+                        child: Row(
+                          children: [
+                            Expanded(child: Divider(thickness: 1)),
+                            Opacity(
+                              opacity: 0.5,
+
+                              child: Text(
+                                "OR CONTINUE WITH",
+                                style: TextStyle(fontSize: 18),
+                              ),
+                            ),
+                            Expanded(child: Divider(thickness: 1)),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+                        child: Row(
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {},
+                             
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
+                                  ),
+                                ),
+                              ),
+                               child: Row(
+                                children: [
+                                  Image.asset('assets/images/google.png')
+                                ],
+                               ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
