@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Timer(Duration(milliseconds: 1500), () {
+    Timer(Duration(milliseconds: 2500), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => LoginScreen()),
@@ -47,6 +47,21 @@ class _SplashScreenState extends State<SplashScreen> {
                 style: TextStyle(
                   color: const Color.fromARGB(255, 0, 0, 0),
                   fontSize: 14,
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Container(
+                  width: 350,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: LinearProgressIndicator(
+                    minHeight: 5,
+                    borderRadius: BorderRadius.circular(20),
+                    color: Colors.blueAccent,
+                  ),
                 ),
               ),
             ],
