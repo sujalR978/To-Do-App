@@ -540,10 +540,9 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                                         _time.format(context).toString(),
 
                                         style: TextStyle(
-                                          fontSize: 20,
                                           fontWeight: FontWeight.w400,
                                         ),
-                                        maxLines: 2,
+                                        maxLines: 1,
                                       ),
                                     ),
                                   ),
