@@ -5,9 +5,15 @@ void main() {
   runApp(AddTaskScreen());
 }
 
-class AddTaskScreen extends StatelessWidget {
+class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});
 
+  @override
+  State<AddTaskScreen> createState() => _AddTaskScreenState();
+}
+
+class _AddTaskScreenState extends State<AddTaskScreen> {
+  bool _isSelected = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -168,6 +174,20 @@ class AddTaskScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+                    ),
+                  ],
+                ),
+
+                Row(
+                  children: [
+                    ChoiceChip(
+                      
+                      label: Text('Work'),
+                      selected: _isSelected,
+
+                      onSelected: (value) => setState(() {
+                        _isSelected = value;
+                      }),
                     ),
                   ],
                 ),
