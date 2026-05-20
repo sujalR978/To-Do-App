@@ -46,6 +46,17 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     });
   }
 
+  TimeOfDay _time = TimeOfDay.now();
+  void _timePicker() {
+    showTimePicker(context: context, initialTime: TimeOfDay.now()).then((
+      value,
+    ) {
+      setState(() {
+        _time = value!;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
