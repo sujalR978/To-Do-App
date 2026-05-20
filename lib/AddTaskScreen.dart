@@ -471,16 +471,74 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     ),
 
                     // TIME
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
 
                       children: [
                         Padding(
-                          padding: EdgeInsets.only(top: 30, left: 20),
+                          padding: EdgeInsets.only(
+                            top: 15,
+                            left: 30,
+                            bottom: 10,
+                          ),
 
                           child: Text(
                             'Time',
                             style: TextStyle(fontWeight: FontWeight.w500),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(left: 30, top: 0),
+                          child: Container(
+                            width: 150,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                  spreadRadius: 5,
+                                  color: Colors.black.withOpacity(0.2),
+                                  blurRadius: 7,
+                                  offset: Offset(0, 4),
+                                ),
+                              ],
+                            ),
+                            child: MaterialButton(
+                              onPressed: () {},
+                              height: 60,
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.timer_sharp,
+                                    color: const Color.fromARGB(
+                                      255,
+                                      52,
+                                      83,
+                                      238,
+                                    ),
+                                    size: 30,
+                                  ),
+                                  SizedBox(width: 10),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 0),
+                                    child: Container(
+                                      width: 50,
+                                      child: Text(
+                                        'time',
+
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                        maxLines: 2,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
                       ],
