@@ -537,7 +537,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                                     child: Container(
                                       width: 50,
                                       child: Text(
-                                        'time',
+                                        _time.format(context).toString(),
 
                                         style: TextStyle(
                                           fontSize: 20,
