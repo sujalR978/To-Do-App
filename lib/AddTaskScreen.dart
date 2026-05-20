@@ -278,22 +278,44 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 Row(
                   children: [
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+
                       children: [
-                        Align(
-                          alignment: AlignmentGeometry.topStart,
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 30, left: 20),
-                            child: Text(
-                              'Due Date',
-                              style: TextStyle(fontWeight: FontWeight(500)),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 30,
+                            left: 20,
+                            bottom: 10,
+                          ),
+                          child: Text(
+                            'Due Date',
+                            style: TextStyle(fontWeight: FontWeight(500)),
+                          ),
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: MaterialButton(
+                            onPressed: () {},
+                            minWidth: 175,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadiusGeometry.circular(10),
+                              side: BorderSide(color: Colors.black),
+                            ),
+                            child: Row(
+                              children: [
+                                Icon(Icons.calendar_today_outlined),
+                                SizedBox(width: 10),
+                                Text('data'),
+                              ],
                             ),
                           ),
                         ),
-                        
                       ],
                     ),
-                    SizedBox(width: 100),
+
                     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Align(
                           alignment: AlignmentGeometry.topStart,
