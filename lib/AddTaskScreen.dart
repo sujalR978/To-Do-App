@@ -13,7 +13,9 @@ class AddTaskScreen extends StatefulWidget {
 }
 
 class _AddTaskScreenState extends State<AddTaskScreen> {
-  bool _isSelected = false;
+  bool _isWork = false;
+  bool _isPersnoal = false;
+  bool _isShopping = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -178,16 +180,132 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                   ],
                 ),
 
+                Padding(
+                  padding: const EdgeInsets.only(left: 0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ChoiceChip(
+                        label: Text(
+                          'Work',
+                          style: TextStyle(fontWeight: FontWeight(600)),
+                        ),
+                        showCheckmark: false,
+                        backgroundColor: Color.fromARGB(255, 220, 220, 245),
+                        selected: _isWork,
+                        selectedColor: const Color.fromARGB(241, 44, 46, 163),
+                        labelStyle: TextStyle(
+                          color: _isWork ? Colors.white : Colors.black,
+                        ),
+
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusGeometry.circular(50),
+                        ),
+                        avatar: Icon(
+                          Icons.work_outline,
+                          color: _isWork ? Colors.white : Colors.black,
+                        ),
+                        onSelected: (value) => setState(() {
+                          _isWork = value;
+
+                          if (true) {
+                            _isShopping = false;
+                            _isPersnoal = false;
+                          }
+                        }),
+                      ),
+                      SizedBox(width: 10),
+                      ChoiceChip(
+                        showCheckmark: false,
+                        label: Text(
+                          'Shopping',
+                          style: TextStyle(fontWeight: FontWeight(600)),
+                        ),
+                        selectedColor: const Color.fromARGB(241, 44, 46, 163),
+                        labelStyle: TextStyle(
+                          color: _isShopping ? Colors.white : Colors.black,
+                        ),
+                        backgroundColor: Color.fromARGB(255, 220, 220, 245),
+                        avatar: Icon(
+                          Icons.shopping_cart_outlined,
+                          color: _isShopping ? Colors.white : Colors.black,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusGeometry.circular(50),
+                        ),
+                        selected: _isShopping,
+                        onSelected: (value) => setState(() {
+                          _isShopping = value;
+
+                          if (true) {
+                            _isWork = false;
+                            _isPersnoal = false;
+                          }
+                        }),
+                      ),
+                      SizedBox(width: 10),
+                      ChoiceChip(
+                        showCheckmark: false,
+                        avatar: Icon(
+                          Icons.person_4_outlined,
+                          color: _isPersnoal ? Colors.white : Colors.black,
+                        ),
+                        label: Text(
+                          'Personal',
+                          style: TextStyle(fontWeight: FontWeight(600)),
+                        ),
+                        selectedColor: const Color.fromARGB(241, 44, 46, 163),
+                        labelStyle: TextStyle(
+                          color: _isPersnoal ? Colors.white : Colors.black,
+                        ),
+                        backgroundColor: Color.fromARGB(255, 220, 220, 245),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadiusGeometry.circular(50),
+                        ),
+                        selected: _isPersnoal,
+                        onSelected: (value) => setState(() {
+                          _isPersnoal = value;
+
+                          if (true) {
+                            _isWork = false;
+                            _isShopping = false;
+                          }
+                        }),
+                      ),
+                    ],
+                  ),
+                ),
                 Row(
                   children: [
-                    ChoiceChip(
-                      
-                      label: Text('Work'),
-                      selected: _isSelected,
-
-                      onSelected: (value) => setState(() {
-                        _isSelected = value;
-                      }),
+                    Column(
+                      children: [
+                        Align(
+                          alignment: AlignmentGeometry.topStart,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 30, left: 20),
+                            child: Text(
+                              'Due Date',
+                              style: TextStyle(fontWeight: FontWeight(500)),
+                            ),
+                          ),
+                        ),
+                        
+                      ],
+                    ),
+                    SizedBox(width: 100),
+                    Column(
+                      children: [
+                        Align(
+                          alignment: AlignmentGeometry.topStart,
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 30, left: 20),
+                            child: Text(
+                              'Time',
+                              style: TextStyle(fontWeight: FontWeight(500)),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
