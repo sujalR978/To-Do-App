@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(const MyApp());
@@ -425,20 +425,40 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                               ),
 
                               child: Padding(
-                                padding: EdgeInsets.only(right: 70),
+                                padding: EdgeInsets.only(left: 0),
 
                                 child: Row(
                                   children: [
-                                    Icon(Icons.calendar_today_outlined),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 8.0),
+                                      child: Icon(
+                                        Icons.calendar_today_outlined,
+                                        color: const Color.fromARGB(
+                                          255,
+                                          52,
+                                          83,
+                                          238,
+                                        ),
+                                      ),
+                                    ),
 
                                     SizedBox(width: 10),
 
-                                    Text(
-                                      _date.toString(),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10),
+                                      child: Container(
+                                        width: 100,
+                                        child: Text(
+                                          DateFormat(
+                                            'yMMMMd',
+                                          ).format(_date).toString(),
 
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.w400,
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                          maxLines: 2,
+                                        ),
                                       ),
                                     ),
                                   ],
