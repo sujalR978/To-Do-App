@@ -47,8 +47,8 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   }
 
   TimeOfDay _time = TimeOfDay.now();
-  void _timePicker() {
-    showTimePicker(context: context, initialTime: TimeOfDay.now()).then((
+  void _timePicker() async {
+    await showTimePicker(context: context, initialTime: TimeOfDay.now()).then((
       value,
     ) {
       setState(() {
@@ -516,7 +516,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                               ],
                             ),
                             child: MaterialButton(
-                              onPressed: () {},
+                              onPressed: _timePicker,
                               height: 60,
                               child: Row(
                                 children: [
@@ -535,14 +535,14 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                                   Padding(
                                     padding: const EdgeInsets.only(left: 0),
                                     child: Container(
-                                      width: 50,
                                       child: Text(
                                         _time.format(context).toString(),
 
                                         style: TextStyle(
+                                          fontSize: 17,
                                           fontWeight: FontWeight.w400,
                                         ),
-                                        maxLines: 1,
+                                        maxLines: 2,
                                       ),
                                     ),
                                   ),
