@@ -62,7 +62,115 @@ class AddTaskScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Container(),
+                Container(
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: AlignmentGeometry.topStart,
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 30, left: 20),
+                          child: Text(
+                            'Task Name',
+                            style: TextStyle(fontWeight: FontWeight(500)),
+                          ),
+                        ),
+                      ),
+
+                      Opacity(
+                        opacity: 0.5,
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                            left: 15,
+                            right: 15,
+                            top: 8,
+                          ),
+
+                          child: TextFormField(
+                            keyboardType: TextInputType.text,
+
+                            decoration: InputDecoration(
+                              hintText: 'What needs to be done?',
+                              filled: true,
+                              fillColor: Color.fromARGB(246, 232, 232, 250),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Container(
+                  child: Column(
+                    children: [
+                      Align(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 20, top: 20),
+                          child: Text(
+                            'Description',
+                            style: TextStyle(fontWeight: FontWeight(500)),
+                          ),
+                        ),
+                        alignment: AlignmentGeometry.topStart,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15, right: 15),
+                        child: Opacity(
+                          opacity: 0.5,
+
+                          child: TextFormField(
+                            minLines:
+                                5, // The field will start with a height of 5 lines
+                            maxLines: 10,
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Color.fromARGB(246, 232, 232, 250),
+                              hintText: 'Add more details about this task...',
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Row(
+                  children: [
+                    Align(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, top: 20),
+                        child: Text(
+                          'Category',
+                          style: TextStyle(fontWeight: FontWeight(500)),
+                        ),
+                      ),
+                      alignment: AlignmentGeometry.topStart,
+                    ),
+                    SizedBox(width: 200),
+
+                    Padding(
+                      padding: const EdgeInsets.only(left: 40, top: 20),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          '+ Add New',
+                          style: TextStyle(
+                            fontWeight: FontWeight(500),
+                            color: const Color.fromARGB(255, 73, 70, 168),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
