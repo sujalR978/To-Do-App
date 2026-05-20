@@ -48,11 +48,21 @@ class AddTaskScreen extends StatelessWidget {
             child: Column(
               children: [
                 // Determinate (Shows 70% progress)
-                LinearProgressIndicator(
-                  value: 0.7,
-                  backgroundColor: Colors.grey[200],
-                  valueColor: AlwaysStoppedAnimation(Colors.amber),
+                Container(
+                  width: 350,
+                  decoration: BoxDecoration(),
+                  child: LinearProgressIndicator(
+                    value: 0.7,
+                    backgroundColor: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(20),
+                    minHeight: 7,
+
+                    valueColor: AlwaysStoppedAnimation(
+                      const Color.fromARGB(255, 78, 102, 171),
+                    ),
+                  ),
                 ),
+                Container(),
               ],
             ),
           ),
