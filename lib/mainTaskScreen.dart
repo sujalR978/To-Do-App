@@ -32,7 +32,7 @@ class _mainTaskState extends State<mainTask> {
   String currentOption = taskList[0];
 
   void navigation() {
-    
+
   }
 
   @override
@@ -317,7 +317,7 @@ class _mainTaskState extends State<mainTask> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedItem,
-        onTap: _navigation,
+        onTap: navigation,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
