@@ -298,8 +298,7 @@ class _mainTaskState extends State<mainTask> {
                 ),
               ),
             ),
-
-            FloatingActionButton(onPressed: (){},flo)
+            FloatingActionButton:FloatingActionButton(onPressed: () {}, child: Icon(Icons.add)),
           ],
         ),
       ),
