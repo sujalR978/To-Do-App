@@ -31,7 +31,7 @@ class _mainTaskState extends State<mainTask> {
   bool ischeck = false;
   String currentOption = taskList[0];
 
-  void navigation() {
+  void navigation(int Index) {
 
   }
 
