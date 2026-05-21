@@ -312,7 +312,10 @@ class _mainTaskState extends State<mainTask> {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.task_alt),
+            label: 'Create Task',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
         ],
       ),
