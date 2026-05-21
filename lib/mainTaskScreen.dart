@@ -316,7 +316,7 @@ class _mainTaskState extends State<mainTask> {
             icon: Icon(Icons.task_alt),
             label: 'Create Task',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.person_4), label: 'Home'),
         ],
       ),
     );
