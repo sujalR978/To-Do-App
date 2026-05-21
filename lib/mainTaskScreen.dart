@@ -289,6 +289,11 @@ class _mainTaskState extends State<mainTask> {
                         ),
                       ],
                     ),
+                    SizedBox(width: 160),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.more_vert_outlined),
+                    ),
                   ],
                 ),
               ),
