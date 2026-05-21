@@ -24,11 +24,15 @@ class mainTask extends StatefulWidget {
   State<mainTask> createState() => _mainTaskState();
 }
 
+List<String> taskList = ["task 1", "task 2"];
+
 class _mainTaskState extends State<mainTask> {
+  bool ischeck = false;
+  String currentOption = taskList[0];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 244, 241, 241),
       appBar: AppBar(
         backgroundColor: Colors.white,
         title: Text(
@@ -200,9 +204,94 @@ class _mainTaskState extends State<mainTask> {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: Container(
+                width: 370,
+                height: 90,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 255, 255, 255),
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color.fromARGB(
+                        255,
+                        108,
+                        121,
+                        168,
+                      ).withOpacity(0.8),
+                      spreadRadius: 0,
+                      blurRadius: 5,
+                      offset: Offset(3, 2),
+                    ),
+                  ],
+                  border: Border(
+                    left: BorderSide(color: Colors.green, width: 4),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Transform.scale(
+                      scale: 1.3,
+                      child: Checkbox(
+                        shape: CircleBorder(),
+                        checkColor: Colors.white,
+                        hoverColor: Colors.deepPurpleAccent,
+                        value: ischeck,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            ischeck = value!;
+                          });
+                        },
+                      ),
+                    ),
 
-            Container(
-              
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Call Mom',
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight(500),
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 0),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10, bottom: 15),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: const Color.fromARGB(99, 124, 77, 255),
+                              borderRadius: BorderRadius.circular(50),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                left: 10,
+                                right: 10,
+                                top: 2,
+                                bottom: 2,
+                              ),
+                              child: Text(
+                                'WORK',
+                                style: TextStyle(
+                                  color: Colors.deepPurple,
+                                  fontWeight: FontWeight(700),
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
