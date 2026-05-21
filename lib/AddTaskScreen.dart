@@ -613,7 +613,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         'assets/images/Reminder.png',
                         width: 40,
                       ),
-                      
+
                       title: Text(
                         'Reminder',
                         style: TextStyle(fontWeight: FontWeight(500)),
