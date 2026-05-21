@@ -1,56 +1,67 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:to_do_app/AddTaskScreen.dart';
-import 'package:to_do_app/LoginScreen.dart';
 import 'package:to_do_app/Logout.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
+// MAIN APP
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: mainTask());
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MainTask(),
+    );
   }
 }
 
-class mainTask extends StatefulWidget {
-  const mainTask({super.key});
+// HOME SCREEN
+class MainTask extends StatefulWidget {
+  const MainTask({super.key});
 
   @override
-  State<mainTask> createState() => _mainTaskState();
+  State<MainTask> createState() => _MainTaskState();
 }
 
-List<String> taskList = ["task 1", "task 2"];
-
-class _mainTaskState extends State<mainTask> {
+class _MainTaskState extends State<MainTask> {
   int selectedItem = 0;
-  bool ischeck = false;
-  String currentOption = taskList[0];
 
-  void navigation(int Index) {
+  bool isCheck = false;
+
+  // BOTTOM NAVIGATION PAGES
+  final List<Widget> pages = [
+    const HomePage(),
+    const AddTaskScreen(),
+    const Center(child: Text('Profile Screen', style: TextStyle(fontSize: 25))),
+  ];
+
+  void navigation(int index) {
     setState(() {
-      selectedItem = Index!;
+      selectedItem = index;
     });
   }
 
-  final List<Widget> pages = [''];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 244, 241, 241),
+
+      // APPBAR
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text(
+
+        title: const Text(
           'Tasks',
           style: TextStyle(
             color: Color.fromARGB(255, 75, 52, 177),
-            fontWeight: FontWeight(500),
+            fontWeight: FontWeight.w500,
           ),
         ),
+
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 30),
@@ -73,139 +84,236 @@ class _mainTaskState extends State<mainTask> {
           ),
         ],
       ),
+
+      // DRAWER
       drawer: Drawer(
         backgroundColor: const Color.fromARGB(255, 87, 95, 215),
 
         child: ListView(
           children: [
-            DrawerHeader(
+            // LOGO
+            const DrawerHeader(
               child: Center(
                 child: Text(
                   'L O G O',
+
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
-                    fontWeight: FontWeight(600),
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
+
+            // HOME
             ListTile(
-              leading: Icon(Icons.home, color: Colors.white),
-              title: Text(
+              leading: const Icon(Icons.home, color: Colors.white),
+
+              title: const Text(
                 'Home',
+
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 17,
-                  fontWeight: FontWeight(500),
+                  fontWeight: FontWeight.w500,
                 ),
               ),
+
+              onTap: () {
+                Navigator.pop(context);
+
+                setState(() {
+                  selectedItem = 0;
+                });
+              },
+            ),
+
+            // CREATE TASK
+            ListTile(
+              leading: const Icon(Icons.task_alt_outlined, color: Colors.white),
+
+              title: const Text(
+                'Create Task',
+
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+
+              onTap: () {
+                Navigator.pop(context);
+
+                setState(() {
+                  selectedItem = 1;
+                });
+              },
+            ),
+
+            // PROFILE
+            ListTile(
+              leading: const Icon(Icons.person_4_outlined, color: Colors.white),
+
+              title: const Text(
+                'Profile',
+
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+
+              onTap: () {
+                Navigator.pop(context);
+
+                setState(() {
+                  selectedItem = 2;
+                });
+              },
+            ),
+
+            const SizedBox(height: 250),
+
+            Container(
+              width: 280,
+              margin: const EdgeInsets.symmetric(horizontal: 15),
+
+              child: const Divider(color: Colors.white),
+            ),
+
+            // LOGOUT
+            ListTile(
+              leading: const Icon(Icons.logout_rounded, color: Colors.white),
+
+              title: const Text(
+                'Log Out',
+
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+
               onTap: () {
                 Navigator.of(
                   context,
-                ).push(MaterialPageRoute(builder: (Builder) => mainTask()));
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.task_alt_outlined, color: Colors.white),
-              title: Text(
-                'Create Task',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight(500),
-                ),
-              ),
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (Builder) => AddTaskScreen()),
-                );
+                ).push(MaterialPageRoute(builder: (_) => const Logout()));
               },
             ),
 
+            // SETTINGS
             ListTile(
-              leading: Icon(Icons.person_4_outlined, color: Colors.white),
-              title: Text(
-                'Profile',
+              leading: const Icon(Icons.settings, color: Colors.white),
+
+              title: const Text(
+                'Settings',
+
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 17,
-                  fontWeight: FontWeight(500),
+                  fontWeight: FontWeight.w500,
                 ),
               ),
+
               onTap: () {},
-            ),
-
-            Padding(
-              padding: const EdgeInsets.only(top: 325),
-              child: Container(
-                child: Column(
-                  children: [
-                    Container(width: 280, child: Divider(height: 12)),
-                    ListTile(
-                      leading: Icon(Icons.logout_rounded, color: Colors.white),
-                      title: Text(
-                        'Log Out',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                          fontWeight: FontWeight(500),
-                        ),
-                      ),
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (Builder) => Logout()),
-                        );
-                      },
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.settings, color: Colors.white),
-                      title: Text(
-                        'Settings',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 17,
-                          fontWeight: FontWeight(500),
-                        ),
-                      ),
-                      onTap: () {},
-                    ),
-                  ],
-                ),
-              ),
             ),
           ],
         ),
       ),
 
-      body: Center(
+      // BODY
+      body: pages[selectedItem],
+
+      // FLOATING BUTTON
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(
+            context,
+          ).push(MaterialPageRoute(builder: (_) => const AddTaskScreen()));
+        },
+
+        child: const Icon(Icons.add),
+      ),
+
+      // BOTTOM NAVIGATION
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedItem,
+
+        onTap: navigation,
+
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+
+          BottomNavigationBarItem(
+            icon: Icon(Icons.task_alt),
+            label: 'Create Task',
+          ),
+
+          BottomNavigationBarItem(icon: Icon(Icons.person_4), label: 'Profile'),
+        ],
+      ),
+    );
+  }
+}
+
+// HOME PAGE UI
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool isCheck = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: SingleChildScrollView(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 25, top: 20),
+            // HELLO USER
+            const Padding(
+              padding: EdgeInsets.only(left: 25, top: 20),
+
               child: Align(
-                alignment: AlignmentGeometry.topStart,
+                alignment: Alignment.topLeft,
+
                 child: Text(
                   'Hello, User!',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight(600)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 25, top: 10),
-              child: Align(
-                alignment: AlignmentGeometry.topStart,
-                child: Text(
-                  'You have 5 tasks for today',
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight(350)),
+
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                 ),
               ),
             ),
 
+            // TASK COUNT
+            const Padding(
+              padding: EdgeInsets.only(left: 25, top: 10),
+
+              child: Align(
+                alignment: Alignment.topLeft,
+
+                child: Text(
+                  'You have 5 tasks for today',
+
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                ),
+              ),
+            ),
+
+            // PROGRESS BAR
             Padding(
               padding: const EdgeInsets.only(top: 25),
-              child: Container(
+
+              child: SizedBox(
                 width: 360,
+
                 child: LinearProgressIndicator(
                   minHeight: 5,
                   value: 0.3,
@@ -213,14 +321,20 @@ class _mainTaskState extends State<mainTask> {
                 ),
               ),
             ),
+
+            // TASK CARD
             Padding(
               padding: const EdgeInsets.only(top: 20),
+
               child: Container(
                 width: 370,
                 height: 90,
+
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 255, 255, 255),
+                  color: Colors.white,
+
                   borderRadius: BorderRadius.circular(10),
+
                   boxShadow: [
                     BoxShadow(
                       color: const Color.fromARGB(
@@ -228,80 +342,88 @@ class _mainTaskState extends State<mainTask> {
                         108,
                         121,
                         168,
-                      ).withOpacity(0.8),
-                      spreadRadius: 0,
+                      ).withOpacity(0.3),
+
                       blurRadius: 5,
-                      offset: Offset(3, 2),
+                      offset: const Offset(3, 2),
                     ),
                   ],
-                  border: Border(
+
+                  border: const Border(
                     left: BorderSide(color: Colors.green, width: 4),
                   ),
                 ),
+
                 child: Row(
                   children: [
+                    // CHECKBOX
                     Transform.scale(
                       scale: 1.3,
+
                       child: Checkbox(
-                        shape: CircleBorder(),
-                        checkColor: Colors.white,
-                        hoverColor: Colors.deepPurpleAccent,
-                        value: ischeck,
-                        onChanged: (bool? value) {
+                        shape: const CircleBorder(),
+
+                        value: isCheck,
+
+                        onChanged: (value) {
                           setState(() {
-                            ischeck = value!;
+                            isCheck = value!;
                           });
                         },
                       ),
                     ),
 
+                    // TEXT SECTION
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
+
                       children: [
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Call Mom',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight(500),
-                              color: Colors.black,
-                            ),
+                        const Text(
+                          'Call Mom',
+
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: 0),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10, bottom: 15),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(99, 124, 77, 255),
-                              borderRadius: BorderRadius.circular(50),
+
+                        const SizedBox(height: 8),
+
+                        Container(
+                          decoration: BoxDecoration(
+                            color: const Color.fromARGB(99, 124, 77, 255),
+
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 3,
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(
-                                left: 10,
-                                right: 10,
-                                top: 2,
-                                bottom: 2,
-                              ),
-                              child: Text(
-                                'WORK',
-                                style: TextStyle(
-                                  color: Colors.deepPurple,
-                                  fontWeight: FontWeight(700),
-                                  fontSize: 12,
-                                ),
+
+                            child: Text(
+                              'WORK',
+
+                              style: TextStyle(
+                                color: Colors.deepPurple,
+                                fontWeight: FontWeight.w700,
+                                fontSize: 12,
                               ),
                             ),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(width: 160),
+
+                    const Spacer(),
+
+                    // MENU
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(Icons.more_vert_outlined),
+
+                      icon: const Icon(Icons.more_vert_outlined),
                     ),
                   ],
                 ),
@@ -309,26 +431,6 @@ class _mainTaskState extends State<mainTask> {
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(
-            context,
-          ).push(MaterialPageRoute(builder: (Builder) => AddTaskScreen()));
-        },
-        child: Icon(Icons.add),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedItem,
-        onTap: navigation,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.task_alt),
-            label: 'Create Task',
-          ),
-          BottomNavigationBarItem(icon: Icon(Icons.person_4), label: 'Profile'),
-        ],
       ),
     );
   }
