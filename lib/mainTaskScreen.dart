@@ -312,7 +312,7 @@ class _mainTaskState extends State<mainTask> {
         child: Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedItem,
+        currentIndex: selectedItem,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
