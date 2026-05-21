@@ -37,6 +37,7 @@ class _mainTaskState extends State<mainTask> {
     });
   }
 
+  final List<Widget> pages = [''];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
