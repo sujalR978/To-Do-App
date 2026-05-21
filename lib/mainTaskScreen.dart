@@ -32,7 +32,9 @@ class _mainTaskState extends State<mainTask> {
   String currentOption = taskList[0];
 
   void navigation(int Index) {
-
+    setState(() {
+      selectedItem = Index!;
+    });
   }
 
   @override
