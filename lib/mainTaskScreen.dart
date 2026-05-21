@@ -27,8 +27,10 @@ class mainTask extends StatefulWidget {
 List<String> taskList = ["task 1", "task 2"];
 
 class _mainTaskState extends State<mainTask> {
+  int selectedItem = 0;
   bool ischeck = false;
   String currentOption = taskList[0];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -312,7 +314,6 @@ class _mainTaskState extends State<mainTask> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedItem,
         items: [
-
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
             icon: Icon(Icons.task_alt),
