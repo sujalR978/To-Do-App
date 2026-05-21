@@ -555,6 +555,47 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     ),
                   ],
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(246, 232, 232, 250),
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.4),
+                          offset: Offset(0, 4),
+                          spreadRadius: 2,
+                          blurRadius: 7,
+                        ),
+                      ],
+                    ),
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        child: Image.asset('assets/images/prayorityIcon.png'),
+                      ),
+                      title: Text(
+                        'Priority',
+                        style: TextStyle(fontWeight: FontWeight(500)),
+                      ),
+                      subtitle: Text(
+                        'High',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight(400),
+                        ),
+                      ),
+
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
+                    ),
+                  ),
+                ),
+
+                Container(
+                  child: ListTile(
+                    leading: ,
+                  ),
+                )
               ],
             ),
           ),
