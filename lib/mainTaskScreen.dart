@@ -274,6 +274,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      
       child: SingleChildScrollView(
         child: Column(
           children: [
