@@ -62,20 +62,12 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
 
         title: Row(
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.arrow_back_ios_new_outlined),
-            ),
-
-            const SizedBox(width: 15),
-
-            const Text('New Task'),
-          ],
+          children: [const SizedBox(width: 15), const Text('New Task')],
         ),
 
         actions: [
