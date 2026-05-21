@@ -310,7 +310,9 @@ class _mainTaskState extends State<mainTask> {
         child: Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        
         items: [
+
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
             icon: Icon(Icons.task_alt),
