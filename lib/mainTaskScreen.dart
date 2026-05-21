@@ -309,7 +309,7 @@ class _mainTaskState extends State<mainTask> {
         },
         child: Icon(Icons.add),
       ),
-      bottomNavigationBar:  BottomNavigationBar(items: items),
+      bottomNavigationBar:  BottomNavigationBar(items: [BottomNavigationBarItem(icon: icon)]),
     );
   }
 }
