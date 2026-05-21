@@ -298,8 +298,16 @@ class _mainTaskState extends State<mainTask> {
                 ),
               ),
             ),
-                 ],
+          ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(
+            context,
+          ).push(MaterialPageRoute(builder: (Builder) => AddTaskScreen()));
+        },
+        child: Icon(Icons.add),
       ),
     );
   }
