@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -591,11 +593,78 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                   ),
                 ),
 
-                Container(
-                  child: ListTile(
-                    leading: ,
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Color.fromARGB(246, 232, 232, 250),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.4),
+                          blurRadius: 7,
+                          spreadRadius: 3,
+                          offset: Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: ListTile(
+                      leading: Image.asset(
+                        'assets/images/Reminder.png',
+                        width: 40,
+                      ),
+                      
+                      title: Text(
+                        'Reminder',
+                        style: TextStyle(fontWeight: FontWeight(500)),
+                      ),
+                      subtitle: Text(
+                        '10m before',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight(400),
+                        ),
+                      ),
+                      trailing: Icon(Icons.arrow_forward_ios_rounded),
+                    ),
                   ),
-                )
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(
+                    right: 20,
+                    left: 20,
+                    top: 80,
+                    bottom: 20,
+                  ),
+                  child: Container(
+                    height: 60,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 75, 52, 177),
+                      ),
+                      onPressed: () {},
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset(
+                            'assets/images/createTask.png',
+                            height: 20,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            'Create Task',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight(600),
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
