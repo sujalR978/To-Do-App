@@ -583,7 +583,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                           await sp.setStringList("Desc", discList);
                           await sp.setStringList("category", categoryList);
 
-                          sp.getStringList("category");
+                          print(sp.getStringList("category"));
 
                           // Navigator.of(context).push(
                           //   MaterialPageRoute(builder: (Builder) => HomePage()),
