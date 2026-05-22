@@ -272,9 +272,9 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool isCheck = false;
   //main task list
-  final List _taskTital = ['fsdafasd', 'gsdfsffd','hkfkhfhfa'];
+  final List _taskTital = ['fsdafasd', 'gsdfsffd', 'hkfkhfhfa'];
 
-  final List _categoryTital = ['work','shopping','hfsdfksh'];
+  final List _categoryTital = ['work', 'shopping', 'hfsdfksh'];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -334,7 +334,10 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.vertical,
                 itemCount: _taskTital.length,
                 itemBuilder: (context, index) {
-                  return TaskFunction(child: _taskTital[index],category: _categoryTital[index],);
+                  return TaskFunction(
+                    child: _taskTital[index],
+                    category: _categoryTital[index],
+                  );
                 },
               ),
             ),
