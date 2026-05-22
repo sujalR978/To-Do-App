@@ -71,31 +71,28 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   List<String> taskList = [];
   List<String> discList = [];
   List<String> categoryList = [];
-  //task
-  void TaskList() {
-    setState(() {
-      taskList.add(_taskName.text); // Adds string from input to dynamic list
-      _taskName.clear();
-    });
+
+  @override
+  void initState() {
+    super.initState();
+    getdata();
   }
 
-  //description
-  void DiscList() {
-    setState(() {
-      discList.add(_taskdisc.toString());
-    });
+  List<String> test = [];
+
+  void getdata() async {
+    SharedPreferences sp = await SharedPreferences.getInstance();
+
+    test = sp.getStringList('Task') ?? [];
+
+    setState(() {});
   }
 
-  //category
-  void CategoryList() {
-    setState(() {
-      categoryList.add(selectedCategory.toString());
-    });
-  }
-
-  //add new category
-  void addCategory() {
-    // _category_list.add()
+  @override
+  void dispose() {
+    _taskName.dispose();
+    _taskdisc.dispose();
+    super.dispose();
   }
 
   @override
@@ -162,19 +159,18 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 // TASK NAME
                 Column(
                   children: [
-                    const Align(
+                    Align(
                       alignment: Alignment.topLeft,
 
                       child: Padding(
                         padding: EdgeInsets.only(top: 30, left: 20),
 
                         child: Text(
-                          'Task Name',
+                          'Task',
                           style: TextStyle(fontWeight: FontWeight.w500),
                         ),
                       ),
                     ),
-
                     Padding(
                       padding: const EdgeInsets.only(
                         left: 15,
@@ -574,21 +570,26 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromARGB(255, 75, 52, 177),
                       ),
-                      onPressed: () {
-                        setState(() async {
-                          SharedPreferences sp =
-                              await SharedPreferences.getInstance();
 
-                          await sp.setStringList("Task", taskList);
-                          await sp.setStringList("Desc", discList);
-                          await sp.setStringList("category", categoryList);
+                      // add data into lists
+                      onPressed: () async {
+                        SharedPreferences sp =
+                            await SharedPreferences.getInstance();
 
-                          print(sp.getStringList("category"));
+                        // Get old saved list
+                        List<String> oldTask = sp.getStringList("Task") ?? [];
 
-                          // Navigator.of(context).push(
-                          //   MaterialPageRoute(builder: (Builder) => HomePage()),
-                          // );
-                        });
+                        // Add new task
+                        oldTask.add(_taskName.text);
+
+                        // Save updated list
+                        await sp.setStringList("Task", oldTask);
+
+                        // Reload data
+                        getdata();
+
+                        // Clear textfield
+                        _taskName.clear();
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
