@@ -35,7 +35,7 @@ class _MainTaskState extends State<MainTask> {
 
   // BOTTOM NAVIGATION PAGES
   final List<Widget> pages = [
-    const HomePage(),
+    HomePage(test: 'hello',),
     const AddTaskScreen(),
     const Center(child: Text('Profile Screen', style: TextStyle(fontSize: 25))),
   ];
@@ -263,8 +263,8 @@ class _MainTaskState extends State<MainTask> {
 
 // HOME PAGE UI
 class HomePage extends StatefulWidget {
- 
-  const HomePage({super.key});
+  final String test;
+  const HomePage({super.key,required this.test});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -272,7 +272,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isCheck = false;
-  
 
   //main task list
   final List _taskTital = ['fsdafasd', 'gsdfsffd', 'hkfkhfhfa'];
