@@ -66,7 +66,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   //task filed input
   final _taskName = TextEditingController();
   final _taskdisc = TextEditingController();
-  
 
   @override
   Widget build(BuildContext context) {
@@ -545,10 +544,12 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         backgroundColor: const Color.fromARGB(255, 75, 52, 177),
                       ),
                       onPressed: () {
-                        setState(() {
-                          _taskText = _taskName.text;
-                          _taskDescription = _taskdisc.text;
-                          MainTask();
+                        setState(() async {
+                          SharedPreferences sp =
+                              await SharedPreferences.getInstance();
+
+                          sp.setStringList("",);
+
                           Navigator.of(context).push(
                             MaterialPageRoute(builder: (Builder) => HomePage()),
                           );
