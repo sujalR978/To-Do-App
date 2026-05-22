@@ -57,6 +57,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     });
   }
 
+  String? selectedCategory;
+  //list
+  List _category_list = ['work', 'shopping', 'personal', 'ram'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -249,13 +253,20 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: Container(
-                          height: 80,
+                          height: 40,
                           width: 400,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
-                            itemCount: 9,
+                            itemCount: _category_list.length,
                             itemBuilder: (context, index) {
-                              return categoryFunction();
+                              return categoryFunction(
+                                child: _category_list[index],
+                                isSelected:
+                                    selectedCategory == _category_list[index],
+                                onSelect: () => setState(() {
+                                  selectedCategory = _category_list[index];
+                                }),
+                              );
                             },
                           ),
                         ),
