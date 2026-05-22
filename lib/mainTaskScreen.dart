@@ -263,8 +263,7 @@ class _MainTaskState extends State<MainTask> {
 
 // HOME PAGE UI
 class HomePage extends StatefulWidget {
-  final String test;
-  const HomePage({super.key, required this.test});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -283,7 +282,6 @@ class _HomePageState extends State<HomePage> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            
             // HELLO USER
             const Padding(
               padding: EdgeInsets.only(left: 25, top: 20),
