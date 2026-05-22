@@ -59,7 +59,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
   String? selectedCategory;
   //list
-  List _category_list = ['work', 'shopping', 'personal', 'ram'];
+  List _category_list = ['work', 'shopping', 'personal'];
 
   @override
   Widget build(BuildContext context) {
