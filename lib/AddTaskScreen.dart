@@ -546,6 +546,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                       onPressed: () {
                         setState(() {
                           _taskText = _taskName.text;
+                          _taskDescription = _taskdisc.text;
                         });
                       },
                       child: Row(
