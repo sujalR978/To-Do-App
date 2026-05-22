@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'package:to_do_app/categoryFunction.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -29,10 +31,6 @@ class AddTaskScreen extends StatefulWidget {
 }
 
 class _AddTaskScreenState extends State<AddTaskScreen> {
-  bool _isWork = false;
-  bool _isPersnoal = false;
-  bool _isShopping = false;
-
   DateTime _date = DateTime.now();
 
   void _datePicker() async {
@@ -246,137 +244,21 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                   padding: const EdgeInsets.only(top: 10),
 
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-
                     children: [
-                      // WORK
-                      ChoiceChip(
-                        label: const Text(
-                          'Work',
-                          style: TextStyle(fontWeight: FontWeight.w600),
-                        ),
-
-                        showCheckmark: false,
-
-                        backgroundColor: const Color.fromARGB(
-                          255,
-                          220,
-                          220,
-                          245,
-                        ),
-
-                        selected: _isWork,
-
-                        selectedColor: const Color.fromARGB(241, 44, 46, 163),
-
-                        labelStyle: TextStyle(
-                          color: _isWork ? Colors.white : Colors.black,
-                        ),
-
-                        avatar: Icon(
-                          Icons.work_outline,
-                          color: _isWork ? Colors.white : Colors.black,
-                        ),
-
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-
-                        onSelected: (value) {
-                          setState(() {
-                            _isWork = value;
-                            _isShopping = false;
-                            _isPersnoal = false;
-                          });
-                        },
-                      ),
-
-                      const SizedBox(width: 10),
-
-                      // SHOPPING
-                      ChoiceChip(
-                        label: const Text(
-                          'Shopping',
-                          style: TextStyle(fontWeight: FontWeight.w600),
-                        ),
-
-                        showCheckmark: false,
-
-                        selected: _isShopping,
-
-                        selectedColor: const Color.fromARGB(241, 44, 46, 163),
-
-                        backgroundColor: const Color.fromARGB(
-                          255,
-                          220,
-                          220,
-                          245,
-                        ),
-
-                        labelStyle: TextStyle(
-                          color: _isShopping ? Colors.white : Colors.black,
-                        ),
-
-                        avatar: Icon(
-                          Icons.shopping_cart_outlined,
-                          color: _isShopping ? Colors.white : Colors.black,
-                        ),
-
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-
-                        onSelected: (value) {
-                          setState(() {
-                            _isShopping = value;
-                            _isWork = false;
-                            _isPersnoal = false;
-                          });
-                        },
-                      ),
-
-                      const SizedBox(width: 10),
-
                       // PERSONAL
-                      ChoiceChip(
-                        label: const Text(
-                          'Personal',
-                          style: TextStyle(fontWeight: FontWeight.w600),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Container(
+                          height: 80,
+                          width: 400,
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: 9,
+                            itemBuilder: (context, index) {
+                              return categoryFunction();
+                            },
+                          ),
                         ),
-
-                        showCheckmark: false,
-
-                        selected: _isPersnoal,
-
-                        selectedColor: const Color.fromARGB(241, 44, 46, 163),
-
-                        backgroundColor: const Color.fromARGB(
-                          255,
-                          220,
-                          220,
-                          245,
-                        ),
-
-                        labelStyle: TextStyle(
-                          color: _isPersnoal ? Colors.white : Colors.black,
-                        ),
-
-                        avatar: Icon(
-                          Icons.person_4_outlined,
-                          color: _isPersnoal ? Colors.white : Colors.black,
-                        ),
-
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-
-                        onSelected: (value) {
-                          setState(() {
-                            _isPersnoal = value;
-                            _isWork = false;
-                            _isShopping = false;
-                          });
-                        },
                       ),
                     ],
                   ),
