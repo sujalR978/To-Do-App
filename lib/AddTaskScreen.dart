@@ -550,7 +550,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                           _taskDescription = _taskdisc.text;
 
                           Navigator.of(context).push(
-                            MaterialPageRoute(builder: (Builder) => HomePage()),
+                            MaterialPageRoute(builder: (Builder) => HomePage(test: _taskText,)),
                           );
                         });
                       },

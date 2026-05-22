@@ -263,6 +263,7 @@ class _MainTaskState extends State<MainTask> {
 
 // HOME PAGE UI
 class HomePage extends StatefulWidget {
+ 
   const HomePage({super.key});
 
   @override
@@ -271,6 +272,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isCheck = false;
+  
+
   //main task list
   final List _taskTital = ['fsdafasd', 'gsdfsffd', 'hkfkhfhfa'];
 
