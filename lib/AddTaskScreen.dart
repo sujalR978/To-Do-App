@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:to_do_app/categoryFunction.dart';
 import 'package:to_do_app/mainTaskScreen.dart';
@@ -65,8 +66,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   //task filed input
   final _taskName = TextEditingController();
   final _taskdisc = TextEditingController();
-  String _taskText = '';
-  String _taskDescription = '';
+  
 
   @override
   Widget build(BuildContext context) {
