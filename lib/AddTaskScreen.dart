@@ -60,12 +60,43 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   }
 
   String? selectedCategory;
+
   //list
   List _category_list = ['work', 'shopping', 'personal'];
 
   //task filed input
   final _taskName = TextEditingController();
   final _taskdisc = TextEditingController();
+
+  List<String> taskList = [];
+  List<String> discList = [];
+  List<String> categoryList = [];
+  //task
+  void TaskList() {
+      setState(() {
+    taskList.add(_taskName.text); // Adds string from input to dynamic list
+    _taskName.clear();
+  });
+  }
+
+  //description
+  void DiscList() {
+    setState(() {
+      discList.add(_taskdisc.toString());
+    });
+  }
+
+  //category
+  void CategoryList() {
+    setState(() {
+      categoryList.add(selectedCategory.toString());
+    });
+  }
+
+  //add new category
+  void addCategory() {
+    // _category_list.add()
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -531,7 +562,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 ),
 
                 Padding(
-                  padding: const EdgeInsets.only(
+                  padding: EdgeInsets.only(
                     right: 20,
                     left: 20,
                     top: 80,
@@ -548,7 +579,9 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                           SharedPreferences sp =
                               await SharedPreferences.getInstance();
 
-                          sp.setStringList("",);
+                          await sp.setStringList("Task", taskList);
+                          await sp.setStringList("Desc", discList);
+                          await sp.setStringList("category", categoryList);
 
                           Navigator.of(context).push(
                             MaterialPageRoute(builder: (Builder) => HomePage()),
