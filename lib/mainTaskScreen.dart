@@ -274,7 +274,7 @@ class _HomePageState extends State<HomePage> {
   //main task list
   final List _taskTital = ['fsdafasd', 'gsdfsffd','hkfkhfhfa'];
 
-  final List _categoryTital = ['work','shopping'];
+  final List _categoryTital = ['work','shopping','hfsdfksh'];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
