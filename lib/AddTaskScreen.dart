@@ -218,12 +218,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide.none,
                             ),
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                _taskdisc.clear();
-                              },
-                              icon: Icon(Icons.clear),
-                            ),
                           ),
                         ),
                       ),
