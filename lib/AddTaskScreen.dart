@@ -548,7 +548,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         setState(() {
                           _taskText = _taskName.text;
                           _taskDescription = _taskdisc.text;
-
+                          MainTask();
                           Navigator.of(context).push(
                             MaterialPageRoute(builder: (Builder) => HomePage()),
                           );
