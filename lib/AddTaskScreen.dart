@@ -73,10 +73,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   List<String> categoryList = [];
   //task
   void TaskList() {
-      setState(() {
-    taskList.add(_taskName.text); // Adds string from input to dynamic list
-    _taskName.clear();
-  });
+    setState(() {
+      taskList.add(_taskName.text); // Adds string from input to dynamic list
+      _taskName.clear();
+    });
   }
 
   //description
@@ -583,9 +583,11 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                           await sp.setStringList("Desc", discList);
                           await sp.setStringList("category", categoryList);
 
-                          Navigator.of(context).push(
-                            MaterialPageRoute(builder: (Builder) => HomePage()),
-                          );
+                          sp.getStringList("category");
+
+                          // Navigator.of(context).push(
+                          //   MaterialPageRoute(builder: (Builder) => HomePage()),
+                          // );
                         });
                       },
                       child: Row(
