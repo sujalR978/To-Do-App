@@ -209,7 +209,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                           controller: _taskdisc,
 
                           decoration: InputDecoration(
-                            
                             filled: true,
                             fillColor: const Color.fromARGB(246, 232, 232, 250),
 
@@ -219,11 +218,13 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide.none,
                             ),
-                            suffixIcon: IconButton(onPressed: (
-                              
-                            ){}, icon: Icon(Icons.clear))
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                _taskdisc.clear();
+                              },
+                              icon: Icon(Icons.clear),
+                            ),
                           ),
-                          
                         ),
                       ),
                     ),
