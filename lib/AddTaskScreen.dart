@@ -68,9 +68,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   final _taskName = TextEditingController();
   final _taskdisc = TextEditingController();
 
-  List<String> taskList = [];
-  List<String> discList = [];
-  List<String> categoryList = [];
+
 
   @override
   void initState() {
