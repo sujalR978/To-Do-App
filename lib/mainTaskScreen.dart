@@ -272,7 +272,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool isCheck = false;
   //main task list
-  final List _taskTital = ['fsdafasd', 'gsdfsffd'];
+  final List _taskTital = ['fsdafasd', 'gsdfsffd','hkfkhfhfa'];
 
   final List _categoryTital = ['work','shopping'];
   @override
