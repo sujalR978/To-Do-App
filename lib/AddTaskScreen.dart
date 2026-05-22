@@ -63,7 +63,9 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
   //task filed input
   final _taskName = TextEditingController();
+  final _taskDescription = TextEditingController();
   String _taskText = '';
+  String _taskDescription = '';
 
   @override
   Widget build(BuildContext context) {
@@ -196,7 +198,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     ),
 
                     Padding(
-                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      padding:  EdgeInsets.only(left: 15, right: 15),
 
                       child: Opacity(
                         opacity: 0.5,
@@ -204,8 +206,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         child: TextFormField(
                           minLines: 5,
                           maxLines: 10,
+                          controller: _taskDescription,
 
                           decoration: InputDecoration(
+                            
                             filled: true,
                             fillColor: const Color.fromARGB(246, 232, 232, 250),
 
