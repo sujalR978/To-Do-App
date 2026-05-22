@@ -61,6 +61,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   //list
   List _category_list = ['work', 'shopping', 'personal'];
 
+  //task filed input
+  final _taskName = TextEditingController();
+  String _taskText = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -150,7 +154,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
                         child: TextFormField(
                           keyboardType: TextInputType.text,
-
+                          controller: _taskName,
                           decoration: InputDecoration(
                             hintText: 'What needs to be done?',
                             filled: true,
@@ -159,6 +163,14 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide.none,
+                            ),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  _taskName.clear();
+                                });
+                              },
+                              icon: Icon(Icons.clear),
                             ),
                           ),
                         ),
@@ -528,7 +540,11 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromARGB(255, 75, 52, 177),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          _taskText = _taskName.text;
+                        });
+                      },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/AddTaskScreen.dart';
 import 'package:to_do_app/Logout.dart';
+import 'package:to_do_app/TaskFunction.dart';
 
 void main() {
   runApp(const MyApp());
@@ -270,11 +271,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isCheck = false;
+  //main task list
+  final List _taskTital = ['fsdafasd', 'gsdfsffd'];
 
+  final List _categoryTital = ['work','shopping'];
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -324,110 +327,15 @@ class _HomePageState extends State<HomePage> {
             ),
 
             // TASK CARD
-            Padding(
-              padding: const EdgeInsets.only(top: 20),
-
-              child: Container(
-                width: 370,
-                height: 90,
-
-                decoration: BoxDecoration(
-                  color: Colors.white,
-
-                  borderRadius: BorderRadius.circular(10),
-
-                  boxShadow: [
-                    BoxShadow(
-                      color: const Color.fromARGB(
-                        255,
-                        108,
-                        121,
-                        168,
-                      ).withOpacity(0.3),
-
-                      blurRadius: 5,
-                      offset: const Offset(3, 2),
-                    ),
-                  ],
-
-                  border: const Border(
-                    left: BorderSide(color: Colors.green, width: 4),
-                  ),
-                ),
-
-                child: Row(
-                  children: [
-                    // CHECKBOX
-                    Transform.scale(
-                      scale: 1.3,
-
-                      child: Checkbox(
-                        shape: const CircleBorder(),
-
-                        value: isCheck,
-
-                        onChanged: (value) {
-                          setState(() {
-                            isCheck = value!;
-                          });
-                        },
-                      ),
-                    ),
-
-                    // TEXT SECTION
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-
-                      children: [
-                        const Text(
-                          'Call Mom',
-
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-
-                        const SizedBox(height: 8),
-
-                        Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(99, 124, 77, 255),
-
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 10,
-                              vertical: 3,
-                            ),
-
-                            child: Text(
-                              'WORK',
-
-                              style: TextStyle(
-                                color: Colors.deepPurple,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    const Spacer(),
-
-                    // MENU
-                    IconButton(
-                      onPressed: () {},
-
-                      icon: const Icon(Icons.more_vert_outlined),
-                    ),
-                  ],
-                ),
+            Container(
+              height: 600,
+              width: 370,
+              child: ListView.builder(
+                scrollDirection: Axis.vertical,
+                itemCount: _taskTital.length,
+                itemBuilder: (context, index) {
+                  return TaskFunction(child: _taskTital[index],category: _categoryTital[index],);
+                },
               ),
             ),
           ],
