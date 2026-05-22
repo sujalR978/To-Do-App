@@ -63,7 +63,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
   //task filed input
   final _taskName = TextEditingController();
-  final _taskDescription = TextEditingController();
+  final _taskdisc = TextEditingController();
   String _taskText = '';
   String _taskDescription = '';
 
@@ -198,7 +198,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     ),
 
                     Padding(
-                      padding:  EdgeInsets.only(left: 15, right: 15),
+                      padding: const EdgeInsets.only(left: 15, right: 15),
 
                       child: Opacity(
                         opacity: 0.5,
@@ -206,7 +206,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         child: TextFormField(
                           minLines: 5,
                           maxLines: 10,
-                          controller: _taskDescription,
+                          controller: _taskdisc,
 
                           decoration: InputDecoration(
                             
