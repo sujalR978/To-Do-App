@@ -37,10 +37,10 @@ class _categoryFunctionState extends State<categoryFunction> {
 
           backgroundColor: const Color.fromARGB(255, 220, 220, 245),
 
-          // avatar: Icon(
-          //   Icons.person_4_outlined,
-          //   color: widget.isSelected ? Colors.white : Colors.black,
-          // ),
+          avatar: Icon(
+            Icons.deblur,
+            color: widget.isSelected ? Colors.white : Colors.black,
+          ),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),
