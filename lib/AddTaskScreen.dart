@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import 'package:to_do_app/categoryFunction.dart';
+import 'package:to_do_app/mainTaskScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -547,6 +548,10 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         setState(() {
                           _taskText = _taskName.text;
                           _taskDescription = _taskdisc.text;
+
+                          Navigator.of(context).push(
+                            MaterialPageRoute(builder: (Builder) => HomePage()),
+                          );
                         });
                       },
                       child: Row(
