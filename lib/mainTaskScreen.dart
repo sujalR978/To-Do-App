@@ -35,7 +35,7 @@ class _MainTaskState extends State<MainTask> {
 
   // BOTTOM NAVIGATION PAGES
   final List<Widget> pages = [
-    HomePage(test: 'hello',),
+    HomePage(),
     const AddTaskScreen(),
     const Center(child: Text('Profile Screen', style: TextStyle(fontSize: 25))),
   ];
@@ -264,7 +264,7 @@ class _MainTaskState extends State<MainTask> {
 // HOME PAGE UI
 class HomePage extends StatefulWidget {
   final String test;
-  const HomePage({super.key,required this.test});
+  const HomePage({super.key, required this.test});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -283,6 +283,7 @@ class _HomePageState extends State<HomePage> {
       child: SingleChildScrollView(
         child: Column(
           children: [
+            
             // HELLO USER
             const Padding(
               padding: EdgeInsets.only(left: 25, top: 20),
