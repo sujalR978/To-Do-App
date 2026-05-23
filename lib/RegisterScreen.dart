@@ -25,9 +25,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   List<String> test = [];
+  List<String> emailCheck = [];
   void getdata() async {
     SharedPreferences spget = await SharedPreferences.getInstance();
     test.addAll(spget.getStringList("Name") ?? []);
+    emailCheck.addAll(spget.getStringList('Email') ?? []);
   }
 
   @override
@@ -228,7 +230,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Enter your Email';
+                              } else if (emailCheck.contains(value.toString().trim())) {
+                                return 'Duplicate Email';
                               }
+
                               return null;
                             },
                             decoration: InputDecoration(

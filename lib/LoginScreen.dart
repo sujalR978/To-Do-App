@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'RegisterScreen.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  LoginScreen({super.key});
+
+  final _keyForm = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -58,79 +60,116 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text(
-                        'Email Address',
-                        style: TextStyle(fontWeight: FontWeight.w500),
-                      ),
+                      Form(
+                        key: _keyForm,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Email Address',
+                              style: TextStyle(fontWeight: FontWeight.w500),
+                            ),
 
-                      const SizedBox(height: 10),
+                            const SizedBox(height: 10),
 
-                      TextFormField(
-                        decoration: InputDecoration(
-                          hintText: 'Enter Email here...',
-                          filled: true,
-                          fillColor: const Color.fromARGB(246, 232, 232, 250),
-                          prefixIcon: const Icon(Icons.email),
+                            TextFormField(
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Enter email.';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Enter Email here...',
+                                filled: true,
+                                fillColor: const Color.fromARGB(
+                                  246,
+                                  232,
+                                  232,
+                                  250,
+                                ),
+                                prefixIcon: const Icon(Icons.email),
 
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide.none,
-                          ),
-                        ),
-                      ),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  borderSide: BorderSide.none,
+                                ),
+                              ),
+                            ),
 
-                      const SizedBox(height: 20),
+                            const SizedBox(height: 20),
 
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
-                            'Password',
-                            style: TextStyle(fontWeight: FontWeight.w500),
-                          ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  'Password',
+                                  style: TextStyle(fontWeight: FontWeight.w500),
+                                ),
 
-                          TextButton(
-                            onPressed: () {},
+                                TextButton(
+                                  onPressed: () {},
 
-                            child: const Text('Forgot Password?'),
-                          ),
-                        ],
-                      ),
+                                  child: const Text('Forgot Password?'),
+                                ),
+                              ],
+                            ),
 
-                      TextFormField(
-                        obscureText: true,
+                            TextFormField(
+                              obscureText: true,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Enter password.';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                hintText: 'Enter Password here...',
+                                filled: true,
+                                fillColor: const Color.fromARGB(
+                                  246,
+                                  232,
+                                  232,
+                                  250,
+                                ),
+                                prefixIcon: const Icon(Icons.lock),
 
-                        decoration: InputDecoration(
-                          hintText: 'Enter Password here...',
-                          filled: true,
-                          fillColor: const Color.fromARGB(246, 232, 232, 250),
-                          prefixIcon: const Icon(Icons.lock),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                  borderSide: BorderSide.none,
+                                ),
+                              ),
+                            ),
 
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15),
-                            borderSide: BorderSide.none,
-                          ),
-                        ),
-                      ),
+                            const SizedBox(height: 30),
 
-                      const SizedBox(height: 30),
+                            ElevatedButton(
+                              onPressed: () {
+                                if(_keyForm.currentState!.validate()){
 
-                      ElevatedButton(
-                        onPressed: () {},
+                                }
+                            
+                              },
 
-                        style: ElevatedButton.styleFrom(
-                          minimumSize: const Size(double.infinity, 55),
-                          backgroundColor: const Color.fromARGB(
-                            255,
-                            75,
-                            52,
-                            177,
-                          ),
-                        ),
+                              style: ElevatedButton.styleFrom(
+                                minimumSize: const Size(double.infinity, 55),
+                                backgroundColor: const Color.fromARGB(
+                                  255,
+                                  75,
+                                  52,
+                                  177,
+                                ),
+                              ),
 
-                        child: const Text(
-                          'Sign In',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
+                              child: const Text(
+                                'Sign In',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
 
@@ -179,7 +218,7 @@ class LoginScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>  RegisterScreen(),
+                            builder: (context) => RegisterScreen(),
                           ),
                         );
                       },
