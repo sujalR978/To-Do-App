@@ -87,6 +87,7 @@ class RegisterScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: TextFormField(
                             keyboardType: TextInputType.name,
+                            controller: TextEditingController(),
 
                             decoration: InputDecoration(
                               hintText: 'Enter Name here...',
@@ -243,7 +244,9 @@ class RegisterScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 25),
                           child: ElevatedButton(
                             onPressed: () {
-                              print('Sign Up Pressed');
+                              
+
+                              //logic to save data
                             },
 
                             style: ElevatedButton.styleFrom(
