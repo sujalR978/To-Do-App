@@ -341,7 +341,9 @@ class _HomePageState extends State<HomePage> {
                 itemBuilder: (context, index) {
                   return TaskFunction(
                     child: _taskTital[index],
-                    category: _categoryTital[index],
+                    category: index < _categoryTital.length
+                        ? _categoryTital[index]
+                        : "No Category",
                   );
                 },
               ),
