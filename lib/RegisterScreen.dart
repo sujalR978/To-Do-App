@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:to_do_app/HomeScreen.dart';
+import 'package:to_do_app/mainTaskScreen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -173,6 +175,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: TextFormField(
                             keyboardType: TextInputType.text,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Enter your profession';
+                              }
+                              return null;
+                            },
                             controller: _profession,
                             decoration: InputDecoration(
                               hintText: 'Enter Your Profession',
@@ -217,6 +225,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: TextFormField(
                             keyboardType: TextInputType.emailAddress,
                             controller: _email,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Enter your Email';
+                              }
+                              return null;
+                            },
                             decoration: InputDecoration(
                               hintText: 'Enter Email here...',
                               fillColor: const Color.fromARGB(
@@ -262,6 +276,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             bottom: 45,
                           ),
                           child: TextFormField(
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Enter your password';
+                              }
+                              return null;
+                            },
                             obscureText: true,
                             controller: _password,
                             decoration: InputDecoration(
@@ -314,6 +334,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 _profession.clear();
                                 _email.clear();
                                 _password.clear();
+
+                                setState(() {
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(
+                                      builder: (context) => MainTask(),
+                                    ),
+                                  );
+                                });
                               }
                             },
 

@@ -4,22 +4,7 @@ import 'package:to_do_app/AddTaskScreen.dart';
 import 'package:to_do_app/Logout.dart';
 import 'package:to_do_app/TaskFunction.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
-// MAIN APP
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MainTask(),
-    );
-  }
-}
 
 // HOME SCREEN
 class MainTask extends StatefulWidget {
@@ -287,7 +272,7 @@ class _HomePageState extends State<HomePage> {
 
   void getdata() async {
     SharedPreferences spget = await SharedPreferences.getInstance();
-    
+
   }
 
   @override
