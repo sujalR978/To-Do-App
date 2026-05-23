@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do_app/mainTaskScreen.dart';
@@ -162,13 +164,23 @@ class _LoginScreenState extends State<LoginScreen> {
                                   SharedPreferences spset =
                                       await SharedPreferences.getInstance();
 
-                                  await spset.setBool("LogIn",true);
+                                  await spset.setBool("LogIn", true);
                                   setState(() {
-                                    Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                        builder: (context) => MainTask(),
-                                      ),
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return Center(
+                                          child: CircularProgressIndicator(),
+                                        );
+                                      },
                                     );
+                                    Timer(Duration(milliseconds: 1000), () {
+                                      Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(
+                                          builder: (context) => MainTask(),
+                                        ),
+                                      );
+                                    });
                                   });
                                 }
                               },
