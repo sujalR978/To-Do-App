@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do_app/LoginScreen.dart';
+import 'package:to_do_app/mainTaskScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,12 +17,22 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
+    getdata();
+  }
+
+  void getdata() async {
+    SharedPreferences spset = await SharedPreferences.getInstance();
+    bool islogin = spset.getBool('LogIn') ?? false;
+
     Timer(Duration(milliseconds: 2500), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
+        MaterialPageRoute(
+          builder: (context) => islogin ? LoginScreen() : MainTask(),
+        ),
       );
     });
+    setState(() {});
   }
 
   @override
