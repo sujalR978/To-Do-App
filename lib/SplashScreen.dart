@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:to_do_app/HomeScreen.dart';
 import 'package:to_do_app/LoginScreen.dart';
 import 'package:to_do_app/mainTaskScreen.dart';
 
@@ -28,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => islogin ? MainTask() : LoginScreen(),
+          builder: (context) => islogin ? Homescreen() : LoginScreen(),
         ),
       );
     });
