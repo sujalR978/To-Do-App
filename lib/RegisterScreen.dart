@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+  RegisterScreen({super.key});
+
+  //name filed
+  final _name = TextEditingController();
+  final _profession = TextEditingController();
+  final _email = TextEditingController();
+  final _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -87,7 +93,7 @@ class RegisterScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: TextFormField(
                             keyboardType: TextInputType.name,
-                            controller: TextEditingController(),
+                            controller: _name,
 
                             decoration: InputDecoration(
                               hintText: 'Enter Name here...',
@@ -244,8 +250,6 @@ class RegisterScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 25),
                           child: ElevatedButton(
                             onPressed: () {
-                              
-
                               //logic to save data
                             },
 
