@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TaskFunction extends StatefulWidget {
-  final String child;
+  final dynamic child;
   final String category;
   const TaskFunction({super.key, required this.child, required this.category});
 
