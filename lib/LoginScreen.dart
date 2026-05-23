@@ -156,8 +156,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                             const SizedBox(height: 30),
                             ElevatedButton(
-                              onPressed: () {
+                              onPressed: () async {
+                                //login logic
                                 if (_keyForm.currentState!.validate()) {
+                                  SharedPreferences spset =
+                                      await SharedPreferences.getInstance();
+
+                                  await spset.setBool("LogIn",true);
                                   setState(() {
                                     Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
