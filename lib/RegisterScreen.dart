@@ -319,19 +319,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           child: ElevatedButton(
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
+                                SharedPreferences sp =
+                                    await SharedPreferences.getInstance();
                                 //logic to save data
-                                List<String> Name = [];
-                                List<String> Profession = [];
-                                List<String> Email = [];
-                                List<String> Password = [];
+                                List<String> Name =
+                                    sp.getStringList("Name") ?? [];
+                                List<String> Profession =
+                                    sp.getStringList("Profession") ?? [];
+                                List<String> Email =
+                                    sp.getStringList("Email") ?? [];
+                                List<String> Password =
+                                    sp.getStringList("Password") ?? [];
 
                                 Name.add(_name.text);
                                 Profession.add(_profession.text);
                                 Email.add(_email.text);
                                 Password.add(_password.text);
-
-                                SharedPreferences sp =
-                                    await SharedPreferences.getInstance();
 
                                 sp.setStringList("Name", Name);
                                 sp.setStringList("Profession", Profession);
