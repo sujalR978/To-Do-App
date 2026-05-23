@@ -26,6 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
     SharedPreferences spget = await SharedPreferences.getInstance();
     checkEmail.addAll(spget.getStringList('Email') ?? []);
     checkPassword.addAll(spget.getStringList('Password') ?? []);
+
     setState(() {});
   }
 
@@ -90,6 +91,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                 }
                                 if (checkEmail.contains(value.trim())) {
                                   return null;
+                                } else {
+                                  return 'Wrong Email';
                                 }
                               },
                               decoration: InputDecoration(
@@ -131,6 +134,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   value.trim(),
                                 )) {
                                   return null;
+                                } else {
+                                  return 'Wrong Password';
                                 }
                               },
                               decoration: InputDecoration(
