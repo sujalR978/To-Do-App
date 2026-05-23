@@ -1,4 +1,4 @@
- import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:to_do_app/SplashScreen.dart';
 
 void main() {
@@ -11,10 +11,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-     
-      home: const SplashScreen(),
-    );
+    return MaterialApp(home: const SplashScreen());
   }
 }
-
