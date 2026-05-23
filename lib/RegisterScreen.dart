@@ -136,6 +136,8 @@ class RegisterScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: TextFormField(
+                            keyboardType: TextInputType.text,
+                            controller: _profession,
                             decoration: InputDecoration(
                               hintText: 'Enter Your Profession',
                               fillColor: const Color.fromARGB(
@@ -178,7 +180,7 @@ class RegisterScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: TextFormField(
                             keyboardType: TextInputType.emailAddress,
-
+controller: _email,
                             decoration: InputDecoration(
                               hintText: 'Enter Email here...',
                               fillColor: const Color.fromARGB(
@@ -225,7 +227,7 @@ class RegisterScreen extends StatelessWidget {
                           ),
                           child: TextFormField(
                             obscureText: true,
-
+controller: _password,
                             decoration: InputDecoration(
                               hintText: 'Enter Password here...',
                               fillColor: const Color.fromARGB(
@@ -251,6 +253,8 @@ class RegisterScreen extends StatelessWidget {
                           child: ElevatedButton(
                             onPressed: () {
                               //logic to save data
+                            
+
                             },
 
                             style: ElevatedButton.styleFrom(
