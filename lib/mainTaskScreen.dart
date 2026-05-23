@@ -19,7 +19,7 @@ class _MainTaskState extends State<MainTask> {
 
   // BOTTOM NAVIGATION PAGES
   final List<Widget> pages = [
-    HomePage(),
+    const HomePage(),
     const AddTaskScreen(),
     const Center(child: Text('Profile Screen', style: TextStyle(fontSize: 25))),
   ];
@@ -265,6 +265,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     getdata();
   }
 
@@ -276,6 +277,12 @@ class _HomePageState extends State<HomePage> {
 
       _categoryTital = spget.getStringList("Category") ?? [];
     });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    getdata();
   }
 
   @override
