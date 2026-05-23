@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
@@ -180,7 +181,7 @@ class RegisterScreen extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: TextFormField(
                             keyboardType: TextInputType.emailAddress,
-controller: _email,
+                            controller: _email,
                             decoration: InputDecoration(
                               hintText: 'Enter Email here...',
                               fillColor: const Color.fromARGB(
@@ -227,7 +228,7 @@ controller: _email,
                           ),
                           child: TextFormField(
                             obscureText: true,
-controller: _password,
+                            controller: _password,
                             decoration: InputDecoration(
                               hintText: 'Enter Password here...',
                               fillColor: const Color.fromARGB(
@@ -251,10 +252,18 @@ controller: _password,
                         Padding(
                           padding: const EdgeInsets.only(bottom: 25),
                           child: ElevatedButton(
-                            onPressed: () {
+                            onPressed: () async {
                               //logic to save data
-                            
+                              List<String> Name = [];
 
+                              Name.add(_name.text);
+
+                              SharedPreferences sp =
+                                  await SharedPreferences.getInstance();
+
+                              sp.setStringList("Name", Name);
+
+                              _name.clear();
                             },
 
                             style: ElevatedButton.styleFrom(
