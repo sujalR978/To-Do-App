@@ -271,6 +271,7 @@ class _HomePageState extends State<HomePage> {
   void getdata() async {
     SharedPreferences spget = await SharedPreferences.getInstance();
     _taskTital = spget.getStringList("Task") ?? [];
+    _categoryTital = spget.getStringList("Category") ?? [];
   }
 
   @override
