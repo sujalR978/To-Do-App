@@ -37,6 +37,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
     super.dispose();
   }
 
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,6 +97,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
 
                   child: Form(
+                    key: _formKey,
                     child: Column(
                       children: [
                         // NAME
@@ -120,8 +122,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: TextFormField(
-                            validator: (value) {},
-                            keyboardType: TextInputType.number,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Enter your name.';
+                              }
+                              return null;
+                            },
+                            keyboardType: TextInputType.text,
                             controller: _name,
 
                             decoration: InputDecoration(
@@ -281,31 +288,33 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           padding: const EdgeInsets.only(bottom: 25),
                           child: ElevatedButton(
                             onPressed: () async {
-                              //logic to save data
-                              List<String> Name = [];
-                              List<String> Profession = [];
-                              List<String> Email = [];
-                              List<String> Password = [];
+                              if (_formKey.currentState!.validate()) {
+                                //logic to save data
+                                List<String> Name = [];
+                                List<String> Profession = [];
+                                List<String> Email = [];
+                                List<String> Password = [];
 
-                              Name.add(_name.text);
-                              Profession.add(_profession.text);
-                              Email.add(_email.text);
-                              Password.add(_password.text);
+                                Name.add(_name.text);
+                                Profession.add(_profession.text);
+                                Email.add(_email.text);
+                                Password.add(_password.text);
 
-                              SharedPreferences sp =
-                                  await SharedPreferences.getInstance();
+                                SharedPreferences sp =
+                                    await SharedPreferences.getInstance();
 
-                              sp.setStringList("Name", Name);
-                              sp.setStringList("Profession", Profession);
-                              sp.setStringList("Email", Email);
-                              sp.setStringList("Password", Password);
+                                sp.setStringList("Name", Name);
+                                sp.setStringList("Profession", Profession);
+                                sp.setStringList("Email", Email);
+                                sp.setStringList("Password", Password);
 
-                              getdata();
+                                getdata();
 
-                              _name.clear();
-                              _profession.clear();
-                              _email.clear();
-                              _password.clear();
+                                _name.clear();
+                                _profession.clear();
+                                _email.clear();
+                                _password.clear();
+                              }
                             },
 
                             style: ElevatedButton.styleFrom(
