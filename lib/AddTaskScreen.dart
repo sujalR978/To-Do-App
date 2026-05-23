@@ -569,29 +569,31 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
                       // add data into lists
                       onPressed: () async {
-                        // Get old saved list
                         SharedPreferences sp =
                             await SharedPreferences.getInstance();
 
-                        // Old data
+                        // Old saved data
                         List<String> task = sp.getStringList("Task") ?? [];
+
                         List<String> category =
                             sp.getStringList("Category") ?? [];
 
                         // Add new task
                         task.add(_taskName.text);
+
                         category.add(selectedCategory ?? "No Category");
 
-                        // Save again
+                        // Save data
                         await sp.setStringList("Task", task);
-                        await sp.setStringList("Category", category);
 
-                        // Reload data
-                        getdata();
+                        await sp.setStringList("Category", category);
 
                         // Clear textfield
                         _taskName.clear();
                         _taskdisc.clear();
+
+                        // GO BACK TO MAIN SCREEN
+                        Navigator.pop(context);
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,

@@ -257,9 +257,9 @@ class _HomePageState extends State<HomePage> {
   bool isCheck = false;
 
   //main task list
-  List<dynamic> _taskTital = ['fsdafasd', 'gsdfsffd', 'hkfkhfhfa', 'hghg'];
+  List<dynamic> _taskTital = [];
 
-  List _categoryTital = ['work', 'shopping', 'hfsdfksh', 'kdjhfds'];
+  List _categoryTital = [];
 
   @override
   void initState() {
@@ -270,8 +270,12 @@ class _HomePageState extends State<HomePage> {
 
   void getdata() async {
     SharedPreferences spget = await SharedPreferences.getInstance();
-    _taskTital = spget.getStringList("Task") ?? [];
-    _categoryTital = spget.getStringList("Category") ?? [];
+
+    setState(() {
+      _taskTital = spget.getStringList("Task") ?? [];
+
+      _categoryTital = spget.getStringList("Category") ?? [];
+    });
   }
 
   @override
@@ -326,10 +330,12 @@ class _HomePageState extends State<HomePage> {
             ),
 
             // TASK CARD
-            Container(
-              height: 900,
+            SizedBox(
+              height: MediaQuery.of(context).size.height,
               width: 370,
               child: ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
                 scrollDirection: Axis.vertical,
                 itemCount: _taskTital.length,
                 itemBuilder: (context, index) {
