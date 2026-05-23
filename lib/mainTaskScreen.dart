@@ -257,7 +257,12 @@ class _HomePageState extends State<HomePage> {
   bool isCheck = false;
 
   //main task list
-  final List _taskTital = ['fsdafasd', 'gsdfsffd', 'hkfkhfhfa'];
+  final List<dynamic> _taskTital = [
+    'fsdafasd',
+    'gsdfsffd',
+    'hkfkhfhfa',
+    'hghg',
+  ];
 
   final List _categoryTital = ['work', 'shopping', 'hfsdfksh'];
 
@@ -270,7 +275,7 @@ class _HomePageState extends State<HomePage> {
 
   void getdata() async {
     SharedPreferences spget = await SharedPreferences.getInstance();
-    _taskTital.add(spget.getStringList("Task") ?? []);
+    _taskTital.addAll(spget.getStringList("Task") ?? []);
   }
 
   @override
