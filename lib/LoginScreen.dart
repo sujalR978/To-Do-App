@@ -1,287 +1,230 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(LoginScreen());
-}
+import 'RegisterScreen.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 234, 230, 230),
-        body: SafeArea(
-          child: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 234, 230, 230),
+
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 20, top: 80, bottom: 16),
-                  child: Container(
-                    width: 150,
-                    child: Text(
-                      'Welcome back. Ready for focus?',
-                      style: TextStyle(fontSize: 18),
-                      maxLines: 2,
-                    ),
+                const SizedBox(height: 80),
+
+                const SizedBox(
+                  width: 180,
+                  child: Text(
+                    'Welcome back. Ready for focus?',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.only(left: 20, bottom: 25),
-                  child: Container(
-                    width: 300,
-                    child: Text(
-                      'The minimalist path to your most productive day starts here.',
-                      style: TextStyle(fontSize: 18),
-                    ),
+
+                const SizedBox(height: 15),
+
+                const SizedBox(
+                  width: 300,
+                  child: Text(
+                    'The minimalist path to your most productive day starts here.',
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 15, right: 15),
-                  child: Container(
-                    width: 400,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      borderRadius: BorderRadius.circular(25),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.5),
-                          spreadRadius: 1,
-                          offset: Offset(0, 5),
-                          blurRadius: 7,
-                        ),
-                      ],
-                    ),
 
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 20,
-                            top: 25,
-                            bottom: 10,
-                          ),
-                          child: Text(
-                            'Email Address',
-                            style: TextStyle(fontWeight: FontWeight(500)),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15, right: 15),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              hintText: 'Enter Email here...',
-                              fillColor: Color.fromARGB(246, 232, 232, 250),
-                              filled: true,
-                              prefixIcon: Icon(Icons.email),
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide.none,
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 15, left: 20),
-                          child: Row(
-                            children: [
-                              Text(
-                                'Password',
-                                style: TextStyle(fontWeight: FontWeight(500)),
-                              ),
+                const SizedBox(height: 30),
 
-                              SizedBox(width: 180),
-                              TextButton(
-                                onPressed: () {},
+                Container(
+                  padding: const EdgeInsets.all(20),
 
-                                child: Text(
-                                  'Forget Password?',
-                                  style: TextStyle(
-                                    color: const Color.fromARGB(
-                                      255,
-                                      68,
-                                      87,
-                                      255,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(left: 15, right: 15),
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                              hintText: 'Enter password here...',
-                              filled: true,
-                              prefixIcon: Icon(Icons.password),
-                              fillColor: Color.fromARGB(246, 232, 232, 250),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(15),
-                                borderSide: BorderSide.none,
-                              ),
-                            ),
-                          ),
-                        ),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(25),
 
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 15,
-                            right: 15,
-                            top: 25,
-                            bottom: 20,
-                          ),
-                          child: ElevatedButton(
-                            onPressed: () {},
-                            child: Text(
-                              'Sing In',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 18,
-                                fontWeight: FontWeight(400),
-                              ),
-                            ),
-
-                            style: ElevatedButton.styleFrom(
-                              fixedSize: Size(350, 50),
-                              backgroundColor: const Color.fromARGB(
-                                255,
-                                75,
-                                52,
-                                177,
-                              ),
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 20, right: 20),
-
-                          child: Row(
-                            children: [
-                              Expanded(child: Divider(thickness: 1)),
-                              Opacity(
-                                opacity: 0.5,
-
-                                child: Text(
-                                  "OR CONTINUE WITH",
-                                  style: TextStyle(fontSize: 18),
-                                ),
-                              ),
-                              Expanded(child: Divider(thickness: 1)),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            top: 20,
-                            left: 40,
-                            right: 40,
-                            bottom: 40,
-                          ),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              ElevatedButton(
-                                onPressed: () {},
-
-                                style: ElevatedButton.styleFrom(
-                                  fixedSize: Size(140, 50),
-                                  backgroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadiusGeometry.circular(
-                                      10,
-                                    ),
-                                  ),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 20,
-                                      child: Image.asset(
-                                        'assets/images/google.png',
-                                      ),
-                                    ),
-                                    SizedBox(width: 7),
-
-                                    Text(
-                                      'Google',
-                                      style: TextStyle(fontSize: 18),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(width: 20),
-                              ElevatedButton(
-                                onPressed: () {},
-
-                                style: ElevatedButton.styleFrom(
-                                  fixedSize: Size(140, 50),
-                                  backgroundColor: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadiusGeometry.circular(
-                                      10,
-                                    ),
-                                  ),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Container(
-                                      width: 20,
-                                      child: Image.asset(
-                                        'assets/images/ios.png',
-                                      ),
-                                    ),
-                                    SizedBox(width: 7),
-
-                                    Text(
-                                      'Apple',
-                                      style: TextStyle(fontSize: 18),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 25),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Don't have an account?",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight(400),
-                        ),
-                      ),
-
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Create an Account',
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: const Color.fromARGB(255, 68, 87, 255),
-                            fontWeight: FontWeight(600),
-                          ),
-                        ),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 8,
+                        offset: const Offset(0, 5),
                       ),
                     ],
                   ),
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Email Address',
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
+
+                      const SizedBox(height: 10),
+
+                      TextFormField(
+                        decoration: InputDecoration(
+                          hintText: 'Enter Email here...',
+                          filled: true,
+                          fillColor: const Color.fromARGB(246, 232, 232, 250),
+                          prefixIcon: const Icon(Icons.email),
+
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide.none,
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 20),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Password',
+                            style: TextStyle(fontWeight: FontWeight.w500),
+                          ),
+
+                          TextButton(
+                            onPressed: () {},
+
+                            child: const Text('Forgot Password?'),
+                          ),
+                        ],
+                      ),
+
+                      TextFormField(
+                        obscureText: true,
+
+                        decoration: InputDecoration(
+                          hintText: 'Enter Password here...',
+                          filled: true,
+                          fillColor: const Color.fromARGB(246, 232, 232, 250),
+                          prefixIcon: const Icon(Icons.lock),
+
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(15),
+                            borderSide: BorderSide.none,
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 30),
+
+                      ElevatedButton(
+                        onPressed: () {},
+
+                        style: ElevatedButton.styleFrom(
+                          minimumSize: const Size(double.infinity, 55),
+                          backgroundColor: const Color.fromARGB(
+                            255,
+                            75,
+                            52,
+                            177,
+                          ),
+                        ),
+
+                        child: const Text(
+                          'Sign In',
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
+                      ),
+
+                      const SizedBox(height: 25),
+
+                      const Row(
+                        children: [
+                          Expanded(child: Divider()),
+
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Text("OR CONTINUE WITH"),
+                          ),
+
+                          Expanded(child: Divider()),
+                        ],
+                      ),
+
+                      const SizedBox(height: 25),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                        children: [
+                          socialButton('assets/images/google.png', 'Google'),
+
+                          socialButton('assets/images/ios.png', 'Apple'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
+                const SizedBox(height: 25),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text(
+                      "Don't have an account?",
+                      style: TextStyle(fontSize: 16),
+                    ),
+
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const RegisterScreen(),
+                          ),
+                        );
+                      },
+
+                      child: const Text(
+                        'Create an Account',
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  static Widget socialButton(String image, String title) {
+    return ElevatedButton(
+      onPressed: () {},
+
+      style: ElevatedButton.styleFrom(
+        fixedSize: const Size(150, 50),
+        backgroundColor: Colors.white,
+
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ),
+
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(height: 25, width: 25, child: Image.asset(image)),
+
+          const SizedBox(width: 10),
+
+          Text(
+            title,
+            style: const TextStyle(fontSize: 18, color: Colors.black),
+          ),
+        ],
       ),
     );
   }
