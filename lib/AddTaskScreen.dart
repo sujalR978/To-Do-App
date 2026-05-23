@@ -593,7 +593,15 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         _taskdisc.clear();
 
                         // GO BACK TO MAIN SCREEN
-                        Navigator.pop(context);
+                        // Navigator.of(context)
+                        //     .push(
+                        //       MaterialPageRoute(
+                        //         builder: (_) => const AddTaskScreen(),
+                        //       ),
+                        //     )
+                        //     .then((value) {
+                        //       setState(() {});
+                        //     });
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
