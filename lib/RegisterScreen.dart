@@ -19,7 +19,13 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    
+    getdata();
+  }
+
+  List<String> test = [];
+  void getdata() async {
+    SharedPreferences spget = await SharedPreferences.getInstance();
+    test.addAll(spget.getStringList("Name") ?? []);
   }
 
   @override
@@ -52,7 +58,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
 
                 // TITLE
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(bottom: 7),
                   child: Text(
                     'Create Account',
@@ -114,7 +120,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 15),
                           child: TextFormField(
-                            keyboardType: TextInputType.name,
+                            validator: (value) {},
+                            keyboardType: TextInputType.number,
                             controller: _name,
 
                             decoration: InputDecoration(
@@ -276,15 +283,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             onPressed: () async {
                               //logic to save data
                               List<String> Name = [];
+                              List<String> Profession = [];
+                              List<String> Email = [];
+                              List<String> Password = [];
 
                               Name.add(_name.text);
+                              Profession.add(_profession.text);
+                              Email.add(_email.text);
+                              Password.add(_password.text);
 
                               SharedPreferences sp =
                                   await SharedPreferences.getInstance();
 
                               sp.setStringList("Name", Name);
+                              sp.setStringList("Profession", Profession);
+                              sp.setStringList("Email", Email);
+                              sp.setStringList("Password", Password);
+
+                              getdata();
 
                               _name.clear();
+                              _profession.clear();
+                              _email.clear();
+                              _password.clear();
                             },
 
                             style: ElevatedButton.styleFrom(
