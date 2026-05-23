@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
 
 // HOME SCREEN
 class MainTask extends StatefulWidget {
-  
   const MainTask({super.key});
 
   @override
@@ -279,8 +278,18 @@ class _HomePageState extends State<HomePage> {
 
   final List _categoryTital = ['work', 'shopping', 'hfsdfksh'];
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getdata();
+  }
 
-  
+  void getdata() async {
+    SharedPreferences spget = await SharedPreferences.getInstance();
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
