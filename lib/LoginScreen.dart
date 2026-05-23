@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/mainTaskScreen.dart';
 import 'RegisterScreen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -129,7 +130,16 @@ class _LoginScreenState extends State<LoginScreen> {
                             const SizedBox(height: 30),
                             ElevatedButton(
                               onPressed: () {
-                                if (_keyForm.currentState!.validate()) {}
+                                if (_keyForm.currentState!.validate()) {
+                                  
+                                  setState(() {
+                                    Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                        builder: (context) => MainTask(),
+                                      ),
+                                    );
+                                  });
+                                }
                               },
                               style: ElevatedButton.styleFrom(
                                 minimumSize: const Size(double.infinity, 55),
