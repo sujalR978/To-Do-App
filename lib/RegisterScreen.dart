@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do_app/HomeScreen.dart';
+import 'package:to_do_app/LoginScreen.dart';
 import 'package:to_do_app/mainTaskScreen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -230,7 +233,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             validator: (value) {
                               if (value == null || value.isEmpty) {
                                 return 'Enter your Email';
-                              } else if (emailCheck.contains(value.toString().trim())) {
+                              } else if (emailCheck.contains(
+                                value.toString().trim(),
+                              )) {
                                 return 'Duplicate Email';
                               }
 
@@ -341,10 +346,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 _password.clear();
 
                                 setState(() {
-                                  Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                      builder: (context) => MainTask(),
-                                    ),
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    },
+                                  );
+
+                                  Timer(
+                                    Duration(milliseconds: 2500),
+                                    () => {
+                                      Navigator.of(context).pushReplacement(
+                                        MaterialPageRoute(
+                                          builder: (context) => LoginScreen(),
+                                        ),
+                                      ),
+                                    },
                                   );
                                 });
                               }
