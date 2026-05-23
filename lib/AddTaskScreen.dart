@@ -68,8 +68,6 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   final _taskName = TextEditingController();
   final _taskdisc = TextEditingController();
 
-
-
   @override
   void initState() {
     super.initState();
@@ -575,19 +573,23 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                             await SharedPreferences.getInstance();
 
                         // Get old saved list
-                        List<String> oldTask = sp.getStringList("Task") ?? [];
+                        List<String> Task = [];
+                        List<String> description = [];
 
                         // Add new task
-                        oldTask.add(_taskName.text);
+                        Task.add(_taskName.text);
+                        description.add(_taskdisc.text);
 
                         // Save updated list
-                        await sp.setStringList("Task", oldTask);
+                        await sp.setStringList("Task", Task);
+                        await sp.setStringList("Desc", description);
 
                         // Reload data
                         getdata();
 
                         // Clear textfield
                         _taskName.clear();
+                        _taskdisc.clear();
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
