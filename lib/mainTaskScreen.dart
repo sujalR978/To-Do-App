@@ -4,8 +4,6 @@ import 'package:to_do_app/AddTaskScreen.dart';
 import 'package:to_do_app/Logout.dart';
 import 'package:to_do_app/TaskFunction.dart';
 
-
-
 // HOME SCREEN
 class MainTask extends StatefulWidget {
   const MainTask({super.key});
@@ -272,7 +270,7 @@ class _HomePageState extends State<HomePage> {
 
   void getdata() async {
     SharedPreferences spget = await SharedPreferences.getInstance();
-
+    _taskTital.add(spget.getStringList("Task") ?? []);
   }
 
   @override
