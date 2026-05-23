@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do_app/mainTaskScreen.dart';
 import 'RegisterScreen.dart';
 
@@ -11,6 +12,22 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _keyForm = GlobalKey<FormState>();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getdata();
+  }
+
+  final List checkEmail = [];
+  final List checkPassword = [];
+  void getdata() async {
+    SharedPreferences spget = await SharedPreferences.getInstance();
+    checkEmail.addAll(spget.getStringList('Email') ?? []);
+    checkPassword.addAll(spget.getStringList('Password') ?? []);
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +88,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 if (value == null || value.isEmpty) {
                                   return 'Enter email.';
                                 }
-                                return null;
+                                if (checkEmail.contains(value.trim())) {
+                                  return null;
+                                }
                               },
                               decoration: InputDecoration(
                                 hintText: 'Enter Email here...',
@@ -108,8 +127,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
                                   return 'Enter password.';
+                                } else if (checkPassword.contains(
+                                  value.trim(),
+                                )) {
+                                  return null;
                                 }
-                                return null;
                               },
                               decoration: InputDecoration(
                                 hintText: 'Enter Password here...',
@@ -131,7 +153,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             ElevatedButton(
                               onPressed: () {
                                 if (_keyForm.currentState!.validate()) {
-                                  
                                   setState(() {
                                     Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
