@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do_app/HomeScreen.dart';
 import 'package:to_do_app/LoginScreen.dart';
-import 'package:to_do_app/mainTaskScreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -48,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 15),
-                child: Container(
+                child: SizedBox(
                   width: 150,
                   height: 150,
                   child: Image.asset('assets/images/logo.png'),
