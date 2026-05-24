@@ -59,7 +59,9 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     });
   }
 
-  String? selectedCategory;
+  String? selectedCategory = "work";
+
+  final keyForm = GlobalKey<FormState>();
 
   //list
   List _category_list = ['work', 'shopping', 'personal'];
@@ -155,98 +157,135 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 // TASK NAME
                 Column(
                   children: [
-                    Align(
-                      alignment: Alignment.topLeft,
+                    Form(
+                      key: keyForm,
+                      child: Column(
+                        children: [
+                          Align(
+                            alignment: Alignment.topLeft,
 
-                      child: Padding(
-                        padding: EdgeInsets.only(top: 30, left: 20),
+                            child: Padding(
+                              padding: EdgeInsets.only(top: 30, left: 20),
 
-                        child: Text(
-                          'Task',
-                          style: TextStyle(fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        left: 15,
-                        right: 15,
-                        top: 8,
-                      ),
-
-                      child: Opacity(
-                        opacity: 0.5,
-
-                        child: TextFormField(
-                          keyboardType: TextInputType.text,
-                          controller: _taskName,
-                          decoration: InputDecoration(
-                            hintText: 'What needs to be done?',
-                            filled: true,
-                            fillColor: const Color.fromARGB(246, 232, 232, 250),
-
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide.none,
-                            ),
-                            suffixIcon: IconButton(
-                              onPressed: () {
-                                setState(() {
-                                  _taskName.clear();
-                                });
-                              },
-                              icon: Icon(Icons.clear),
+                              child: Text(
+                                'Task',
+                                style: TextStyle(fontWeight: FontWeight.w500),
+                              ),
                             ),
                           ),
-                        ),
+
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              left: 15,
+                              right: 15,
+                              top: 8,
+                            ),
+
+                            child: Opacity(
+                              opacity: 0.5,
+
+                              child: TextFormField(
+                                validator: (value) {
+                                  if (value == null || value.trim().isEmpty) {
+                                    return 'Enter your task.';
+                                  }
+                                  return null;
+                                },
+                                keyboardType: TextInputType.text,
+                                controller: _taskName,
+                                decoration: InputDecoration(
+                                  hintText: 'What needs to be done?',
+                                  filled: true,
+                                  fillColor: const Color.fromARGB(
+                                    246,
+                                    232,
+                                    232,
+                                    250,
+                                  ),
+
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide.none,
+                                  ),
+                                  suffixIcon: IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        _taskName.clear();
+                                      });
+                                    },
+                                    icon: Icon(Icons.clear),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+
+                          Column(
+                            children: [
+                              const Align(
+                                alignment: Alignment.topLeft,
+
+                                child: Padding(
+                                  padding: EdgeInsets.only(left: 20, top: 20),
+
+                                  child: Text(
+                                    'Description',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 15,
+                                  right: 15,
+                                ),
+
+                                child: Opacity(
+                                  opacity: 0.5,
+
+                                  child: TextFormField(
+                                    minLines: 5,
+                                    maxLines: 10,
+                                    controller: _taskdisc,
+                                    validator: (value) {
+                                      if (value == null ||
+                                          value.trim().isEmpty) {
+                                        return 'Enter task description. (ignore by "-")';
+                                      }
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      filled: true,
+                                      fillColor: const Color.fromARGB(
+                                        246,
+                                        232,
+                                        232,
+                                        250,
+                                      ),
+
+                                      hintText:
+                                          'Add more details about this task...',
+
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide.none,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                   ],
                 ),
 
                 // DESCRIPTION
-                Column(
-                  children: [
-                    const Align(
-                      alignment: Alignment.topLeft,
-
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 20, top: 20),
-
-                        child: Text(
-                          'Description',
-                          style: TextStyle(fontWeight: FontWeight.w500),
-                        ),
-                      ),
-                    ),
-
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15, right: 15),
-
-                      child: Opacity(
-                        opacity: 0.5,
-
-                        child: TextFormField(
-                          minLines: 5,
-                          maxLines: 10,
-                          controller: _taskdisc,
-
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: const Color.fromARGB(246, 232, 232, 250),
-
-                            hintText: 'Add more details about this task...',
-
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide.none,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
 
                 // CATEGORY TITLE
                 Row(
@@ -295,6 +334,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                           width: 400,
                           child: ListView.builder(
                             scrollDirection: Axis.horizontal,
+
                             itemCount: _category_list.length,
                             itemBuilder: (context, index) {
                               return categoryFunction(
@@ -352,6 +392,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
                             child: MaterialButton(
                               onPressed: _datePicker,
+
                               minWidth: 175,
                               height: 80,
                               color: Colors.white,
@@ -569,39 +610,51 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
                       // add data into lists
                       onPressed: () async {
-                        SharedPreferences sp =
-                            await SharedPreferences.getInstance();
+                        if (keyForm.currentState!.validate()) {
+                          SharedPreferences sp =
+                              await SharedPreferences.getInstance();
 
-                        // Old saved data
-                        List<String> task = sp.getStringList("Task") ?? [];
+                          // Old saved data
+                          List<String> task = sp.getStringList("Task") ?? [];
+                          List<String> description =
+                              sp.getStringList("description") ?? [];
+                          List<String> date = sp.getStringList("date") ?? [];
+                          List<String> time = sp.getStringList("time") ?? [];
 
-                        List<String> category =
-                            sp.getStringList("Category") ?? [];
+                          List<String> category =
+                              sp.getStringList("Category") ?? [];
 
-                        // Add new task
-                        task.add(_taskName.text);
+                          // Add new task
+                          task.add(_taskName.text);
+                          description.add(_taskdisc.text);
+                          date.add(_date.toString());
+                          time.add(_time.toString());
 
-                        category.add(selectedCategory ?? "No Category");
+                          category.add(selectedCategory ?? "No Category");
 
-                        // Save data
-                        await sp.setStringList("Task", task);
+                          // Save data
+                          await sp.setStringList("Task", task);
+                          await sp.setStringList("description", description);
+                          await sp.setStringList("date", date);
+                          await sp.setStringList("time", time);
 
-                        await sp.setStringList("Category", category);
+                          await sp.setStringList("Category", category);
 
-                        // Clear textfield
-                        _taskName.clear();
-                        _taskdisc.clear();
+                          // Clear textfield
+                          _taskName.clear();
+                          _taskdisc.clear();
 
-                        // GO BACK TO MAIN SCREEN
-                        // Navigator.of(context)
-                        //     .push(
-                        //       MaterialPageRoute(
-                        //         builder: (_) => const AddTaskScreen(),
-                        //       ),
-                        //     )
-                        //     .then((value) {
-                        //       setState(() {});
-                        //     });
+                          // GO BACK TO MAIN SCREEN
+                          // Navigator.of(context)
+                          //     .push(
+                          //       MaterialPageRoute(
+                          //         builder: (_) => const AddTaskScreen(),
+                          //       ),
+                          //     )
+                          //     .then((value) {
+                          //       setState(() {});
+                          //     });
+                        }
                       },
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
