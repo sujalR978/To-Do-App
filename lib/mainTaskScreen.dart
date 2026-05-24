@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do_app/AddTaskScreen.dart';
 import 'package:to_do_app/Logout.dart';
 import 'package:to_do_app/TaskFunction.dart';
+import 'package:to_do_app/taskDetailScreen.dart';
 
 // HOME SCREEN
 class MainTask extends StatefulWidget {
@@ -247,7 +248,6 @@ class _MainTaskState extends State<MainTask> {
 
 // HOME PAGE UI
 class HomePage extends StatefulWidget {
-  
   const HomePage({super.key});
 
   @override
@@ -256,11 +256,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isCheck = false;
-
+  List<String> _taskTital = [];
+  List<String> _categoryTital = [];
+  List<String> _description = [];
+  List<String> _date = [];
+  List<String> _time = [];
   //main task list
-  List<dynamic> _taskTital = [];
-
-  List _categoryTital = [];
 
   @override
   void initState() {
@@ -277,6 +278,12 @@ class _HomePageState extends State<HomePage> {
       _taskTital = spget.getStringList("Task") ?? [];
 
       _categoryTital = spget.getStringList("Category") ?? [];
+
+      _description = spget.getStringList("description") ?? [];
+
+      _date = spget.getStringList("date") ?? [];
+
+      _time = spget.getStringList("time") ?? [];
     });
   }
 
@@ -347,11 +354,41 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.vertical,
                 itemCount: _taskTital.length,
                 itemBuilder: (context, index) {
-                  return TaskFunction(
-                    child: _taskTital[index],
-                    category: index < _categoryTital.length
-                        ? _categoryTital[index]
-                        : "No Category",
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => ViewTaskScreen(
+                            taskTitle: _taskTital[index],
+
+                            taskDescription: index < _description.length
+                                ? _description[index]
+                                : "No Description",
+
+                            taskCategory: index < _categoryTital.length
+                                ? _categoryTital[index]
+                                : "No Category",
+
+                            taskDate: index < _date.length
+                                ? _date[index]
+                                : "No Date",
+
+                            taskTime: index < _time.length
+                                ? _time[index]
+                                : "No Time",
+                          ),
+                        ),
+                      );
+                    },
+
+                    child: TaskFunction(
+                      child: _taskTital[index],
+
+                      category: index < _categoryTital.length
+                          ? _categoryTital[index]
+                          : "No Category",
+                    ),
                   );
                 },
               ),
