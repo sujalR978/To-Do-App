@@ -247,6 +247,7 @@ class _MainTaskState extends State<MainTask> {
 
 // HOME PAGE UI
 class HomePage extends StatefulWidget {
+  
   const HomePage({super.key});
 
   @override
