@@ -13,7 +13,7 @@ class Homescreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
+              SizedBox(
                 width: 150,
                 height: 150,
                 child: Image.asset('assets/images/homeIcon.png'),
@@ -24,7 +24,7 @@ class Homescreen extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsetsGeometry.only(top: 10),
-                child: Container(
+                child: SizedBox(
                   width: 250,
                   child: Text(
                     'Organize your day, focus on what matters, and achieve your goals with ease.',
