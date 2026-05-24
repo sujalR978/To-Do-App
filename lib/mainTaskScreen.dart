@@ -338,7 +338,7 @@ class _HomePageState extends State<HomePage> {
 
             // TASK CARD
             SizedBox(
-              height: MediaQuery.of(context).size.height,
+              height: 900,
               width: 370,
               child: ListView.builder(
                 shrinkWrap: true,
