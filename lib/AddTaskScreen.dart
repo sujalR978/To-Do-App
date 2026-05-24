@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:to_do_app/TaskSaveScreen.dart';
 
 import 'package:to_do_app/categoryFunction.dart';
 import 'package:to_do_app/mainTaskScreen.dart';
@@ -614,46 +615,60 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                           SharedPreferences sp =
                               await SharedPreferences.getInstance();
 
+                          // SAVE CURRENT VALUES FIRST
+                          String title = _taskName.text;
+                          String descriptionText = _taskdisc.text;
+                          String categoryText =
+                              selectedCategory ?? "No Category";
+                          String dateText = DateFormat(
+                            'yyyy-MM-dd',
+                          ).format(_date);
+                          String timeText = _time.format(context);
+
                           // Old saved data
                           List<String> task = sp.getStringList("Task") ?? [];
                           List<String> description =
                               sp.getStringList("description") ?? [];
                           List<String> date = sp.getStringList("date") ?? [];
                           List<String> time = sp.getStringList("time") ?? [];
-
                           List<String> category =
                               sp.getStringList("Category") ?? [];
 
-                          // Add new task
-                          task.add(_taskName.text);
-                          description.add(_taskdisc.text);
-                          date.add(_date.toString());
-                          time.add(_time.toString());
-
-                          category.add(selectedCategory ?? "No Category");
+                          // Add new data
+                          task.add(title);
+                          description.add(descriptionText);
+                          date.add(dateText);
+                          time.add(timeText);
+                          category.add(categoryText);
 
                           // Save data
                           await sp.setStringList("Task", task);
                           await sp.setStringList("description", description);
                           await sp.setStringList("date", date);
                           await sp.setStringList("time", time);
-
                           await sp.setStringList("Category", category);
 
-                          // Clear textfield
+                          // NAVIGATE
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => TaskSaveScreen(
+                                taskTitle: title,
+                                taskDescription: descriptionText,
+                                taskCategory: categoryText,
+                                taskDate: dateText,
+                                taskTime: timeText,
+                              ),
+                            ),
+                          );
+
+                          // CLEAR AFTER NAVIGATION
                           _taskName.clear();
                           _taskdisc.clear();
 
-                          
-                          Navigator.of(context)
-                              .push(
-                                MaterialPageRoute(
-                                  builder: (_) => const AddTaskScreen(),
-                                ),
-                              )
-                              .then((value) {
-                                setState(() {});
-                              });
+                          setState(() {
+                            selectedCategory = "work";
+                          });
                         }
                       },
                       child: Row(
