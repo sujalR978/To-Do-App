@@ -4,7 +4,7 @@ class categoryFunction extends StatefulWidget {
   final String child;
   final bool isSelected;
   final VoidCallback onSelect;
-  categoryFunction({
+  const categoryFunction({
     super.key,
     required this.child,
     required this.isSelected,
