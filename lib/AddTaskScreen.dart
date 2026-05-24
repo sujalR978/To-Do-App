@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -6,7 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do_app/TaskSaveScreen.dart';
 
 import 'package:to_do_app/categoryFunction.dart';
-import 'package:to_do_app/mainTaskScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -65,7 +63,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   final keyForm = GlobalKey<FormState>();
 
   //list
-  List _category_list = ['work', 'shopping', 'personal'];
+  final List _category_list = ['work', 'shopping', 'personal'];
 
   //task filed input
   final _taskName = TextEditingController();
@@ -330,7 +328,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                       // PERSONAL
                       Padding(
                         padding: const EdgeInsets.only(left: 10),
-                        child: Container(
+                        child: SizedBox(
                           height: 40,
                           width: 400,
                           child: ListView.builder(
@@ -424,7 +422,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
                                     Padding(
                                       padding: const EdgeInsets.only(left: 10),
-                                      child: Container(
+                                      child: SizedBox(
                                         width: 100,
                                         child: Text(
                                           DateFormat(
@@ -602,7 +600,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     top: 80,
                     bottom: 20,
                   ),
-                  child: Container(
+                  child: SizedBox(
                     height: 60,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
