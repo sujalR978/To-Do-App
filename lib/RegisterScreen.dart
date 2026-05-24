@@ -2,9 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:to_do_app/HomeScreen.dart';
 import 'package:to_do_app/LoginScreen.dart';
-import 'package:to_do_app/mainTaskScreen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -360,12 +358,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                                   Timer(
                                     Duration(milliseconds: 2500),
-                                    () => {
+                                    () {
                                       Navigator.of(context).pushReplacement(
                                         MaterialPageRoute(
                                           builder: (context) => LoginScreen(),
                                         ),
-                                      ),
+                                      );
                                     },
                                   );
                                 });
