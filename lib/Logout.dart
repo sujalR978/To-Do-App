@@ -31,7 +31,7 @@ class Logout extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 40, bottom: 30),
-              child: Container(
+              child: SizedBox(
                 height: 200,
                 width: 200,
                 child: Image.asset('assets/images/logout.png'),
@@ -61,14 +61,14 @@ class Logout extends StatelessWidget {
                     MaterialPageRoute(builder: (context) => LoginScreen()),
                   );
                 },
-                child: Text(
-                  'Log Out',
-                  style: TextStyle(fontSize: 18, color: Colors.white),
-                ),
 
                 style: ElevatedButton.styleFrom(
                   fixedSize: Size(350, 50),
                   backgroundColor: const Color.fromARGB(255, 75, 52, 177),
+                ),
+                child: Text(
+                  'Log Out',
+                  style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ),
             ),
@@ -78,17 +78,17 @@ class Logout extends StatelessWidget {
                   context,
                 ).push(MaterialPageRoute(builder: (context) => MainTask()));
               },
+
+              style: ElevatedButton.styleFrom(
+                fixedSize: Size(350, 50),
+                backgroundColor: const Color.fromARGB(246, 232, 232, 250),
+              ),
               child: Text(
                 'Cancel',
                 style: TextStyle(
                   fontSize: 18,
                   color: const Color.fromARGB(255, 0, 0, 0),
                 ),
-              ),
-
-              style: ElevatedButton.styleFrom(
-                fixedSize: Size(350, 50),
-                backgroundColor: const Color.fromARGB(246, 232, 232, 250),
               ),
             ),
 
