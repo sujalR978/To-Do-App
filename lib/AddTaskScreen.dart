@@ -644,16 +644,16 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                           _taskName.clear();
                           _taskdisc.clear();
 
-                          // GO BACK TO MAIN SCREEN
-                          // Navigator.of(context)
-                          //     .push(
-                          //       MaterialPageRoute(
-                          //         builder: (_) => const AddTaskScreen(),
-                          //       ),
-                          //     )
-                          //     .then((value) {
-                          //       setState(() {});
-                          //     });
+                          
+                          Navigator.of(context)
+                              .push(
+                                MaterialPageRoute(
+                                  builder: (_) => const AddTaskScreen(),
+                                ),
+                              )
+                              .then((value) {
+                                setState(() {});
+                              });
                         }
                       },
                       child: Row(
