@@ -20,14 +20,15 @@ class _MyWidgetState extends State<MyWidget> {
           width: 250,
           child: TextButton(
             onPressed: () async {
-              GestureDetector();
               SharedPreferences result = await SharedPreferences.getInstance();
               List<String> re = result.getStringList("Task") ?? [];
               re.remove(widget.child);
 
               await result.setStringList("Task", re);
 
-              setState(() {});
+              setState(() {
+                
+              });
             },
             child: Text('Delete', style: TextStyle(color: Colors.white)),
           ),
