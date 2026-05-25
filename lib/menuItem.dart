@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 class MyWidget extends StatefulWidget {
-  const MyWidget({super.key});
+  final String child;
+  const MyWidget({super.key, required this.child});
 
   @override
   State<MyWidget> createState() => _MyWidgetState();
@@ -18,10 +20,14 @@ class _MyWidgetState extends State<MyWidget> {
           width: 250,
           child: TextButton(
             onPressed: () async {
-              GestureDetector(
-                
-              );
-              
+              GestureDetector();
+              SharedPreferences result = await SharedPreferences.getInstance();
+              List<String> re = result.getStringList("Task") ?? [];
+              re.remove(widget.child);
+
+              await result.setStringList("Task", re);
+
+              setState(() {});
             },
             child: Text('Delete', style: TextStyle(color: Colors.white)),
           ),
