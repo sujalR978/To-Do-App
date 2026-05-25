@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:to_do_app/mainTaskScreen.dart';
 
 class MyWidget extends StatefulWidget {
   final String child;
@@ -27,7 +28,9 @@ class _MyWidgetState extends State<MyWidget> {
               await result.setStringList("Task", re);
 
               setState(() {
-                
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (context) => MainTask()));
               });
             },
             child: Text('Delete', style: TextStyle(color: Colors.white)),
