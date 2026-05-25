@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+class MyWidget extends StatefulWidget {
+  const MyWidget({super.key});
 
-class menuItem extends StatelessWidget {
-  const menuItem({super.key});
+  @override
+  State<MyWidget> createState() => _MyWidgetState();
+}
 
+class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -12,7 +17,10 @@ class menuItem extends StatelessWidget {
           height: 50,
           width: 250,
           child: TextButton(
-            onPressed: () {
+            onPressed: () async {
+              GestureDetector(
+                
+              );
               
             },
             child: Text('Delete', style: TextStyle(color: Colors.white)),
