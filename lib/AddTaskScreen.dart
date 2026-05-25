@@ -6,23 +6,9 @@ import 'package:to_do_app/TaskSaveScreen.dart';
 
 import 'package:to_do_app/categoryFunction.dart';
 
-void main() {
-  runApp(const MyApp());
-}
 
-// ONLY HOLDS MATERIALAPP
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Date Picker Example',
-      home: const AddTaskScreen(),
-    );
-  }
-}
+
 
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});
