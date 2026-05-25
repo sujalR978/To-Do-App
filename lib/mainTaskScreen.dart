@@ -138,6 +138,26 @@ class _MainTaskState extends State<MainTask> {
             ),
 
             // PROFILE
+            ListTile(
+              leading: const Icon(Icons.person_4_outlined, color: Colors.white),
+
+              title: const Text(
+                'Profile',
+
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 17,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+
+              onTap: () {
+                Navigator.pop(context);
+
+                setState(() {});
+              },
+            ),
+
             const SizedBox(height: 250),
 
             Container(
