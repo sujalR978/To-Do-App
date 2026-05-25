@@ -110,7 +110,7 @@ class _TaskFunctionState extends State<TaskFunction> {
             GestureDetector(
               onTap: () => showPopover(
                 context: context,
-                bodyBuilder: (context) => MyWidget(),
+                bodyBuilder: (context) => MyWidget(child: widget.child,),
                 width: 250,
                 direction: PopoverDirection.bottom,
                 backgroundColor: const Color.fromARGB(255, 90, 105, 220),
