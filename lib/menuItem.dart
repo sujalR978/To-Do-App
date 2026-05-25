@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:to_do_app/EditScreen.dart';
 import 'package:to_do_app/mainTaskScreen.dart';
 
 class MyWidget extends StatefulWidget {
@@ -43,7 +44,11 @@ class _MyWidgetState extends State<MyWidget> {
           width: 250,
 
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(
+                context,
+              ).push(MaterialPageRoute(builder: (context) => editScreen(taskname: widget.child,)));
+            },
             child: Text('Edit', style: TextStyle(color: Colors.white)),
           ),
         ),
