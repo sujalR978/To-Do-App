@@ -1,4 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:popover/popover.dart';
+import 'package:popup_menu/popup_menu.dart';
+import 'package:to_do_app/menuItem.dart';
 
 class TaskFunction extends StatefulWidget {
   final dynamic child;
@@ -103,10 +107,18 @@ class _TaskFunctionState extends State<TaskFunction> {
             const Spacer(),
 
             // MENU
-            IconButton(
-              onPressed: () {},
-
-              icon: const Icon(Icons.more_vert_outlined),
+            GestureDetector(
+              onTap: () => showPopover(
+                context: context,
+                bodyBuilder: (context) => menuItem(),
+                width: 250,
+                direction: PopoverDirection.bottom,
+                backgroundColor: const Color.fromARGB(255, 90, 105, 220),
+                height: 116,
+                arrowHeight: 15,
+                arrowWidth: 30,
+              ),
+              child: const Icon(Icons.more_vert),
             ),
           ],
         ),

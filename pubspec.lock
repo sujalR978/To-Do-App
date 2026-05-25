@@ -272,6 +272,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  pop:
+    dependency: "direct main"
+    description:
+      name: pop
+      sha256: "7281a425dfd7d9ffe89924f7a36843ac35a86a115e0f27b2de3fd00025160e3b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.1"
+  popover:
+    dependency: "direct main"
+    description:
+      name: popover
+      sha256: "2b2e1c40658b05089ac9365211983ebdad067d34b9d8fa0313434b38f7efff07"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.0"
+  popup_menu:
+    dependency: "direct main"
+    description:
+      name: popup_menu
+      sha256: "85fe2b7a0c43989307000d89f736718ebb2821eb11c7cf9bd409a1a4be39c3eb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   posix:
     dependency: transitive
     description:
