@@ -138,28 +138,6 @@ class _MainTaskState extends State<MainTask> {
             ),
 
             // PROFILE
-            ListTile(
-              leading: const Icon(Icons.person_4_outlined, color: Colors.white),
-
-              title: const Text(
-                'Profile',
-
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 17,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-
-              onTap: () {
-                Navigator.pop(context);
-
-                setState(() {
-                  selectedItem = 2;
-                });
-              },
-            ),
-
             const SizedBox(height: 250),
 
             Container(
@@ -296,16 +274,19 @@ class _HomePageState extends State<HomePage> {
             ),
 
             // TASK COUNT
-            const Padding(
-              padding: EdgeInsets.only(left: 25, top: 10),
+            Padding(
+              padding: const EdgeInsets.only(left: 25, top: 10),
 
               child: Align(
                 alignment: Alignment.topLeft,
 
                 child: Text(
-                  'You have 5 tasks for today',
+                  'You have ${_taskTital.length} tasks for today',
 
-                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                  style: const TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ),
             ),
@@ -327,7 +308,7 @@ class _HomePageState extends State<HomePage> {
 
             // TASK CARD
             SizedBox(
-              height: 900,
+              height: 19000,
               width: 370,
               child: ListView.builder(
                 shrinkWrap: true,
