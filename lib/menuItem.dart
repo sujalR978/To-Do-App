@@ -45,9 +45,11 @@ class _MyWidgetState extends State<MyWidget> {
 
           child: TextButton(
             onPressed: () {
-              Navigator.of(
-                context,
-              ).push(MaterialPageRoute(builder: (context) => editScreen(taskname: widget.child,)));
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => EditScreen(taskname: widget.child),
+                ),
+              );
             },
             child: Text('Edit', style: TextStyle(color: Colors.white)),
           ),
