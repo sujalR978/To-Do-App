@@ -21,7 +21,6 @@ class _MainTaskState extends State<MainTask> {
   // BOTTOM NAVIGATION PAGES
   final List<Widget> pages = [
     const HomePage(),
-    const AddTaskScreen(),
     const Center(child: Text('Profile Screen', style: TextStyle(fontSize: 25))),
   ];
 
@@ -132,9 +131,9 @@ class _MainTaskState extends State<MainTask> {
               onTap: () {
                 Navigator.pop(context);
 
-                setState(() {
-                  selectedItem = 1;
-                });
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const AddTaskScreen()),
+                );
               },
             ),
 
@@ -223,24 +222,6 @@ class _MainTaskState extends State<MainTask> {
         },
 
         child: const Icon(Icons.add),
-      ),
-
-      // BOTTOM NAVIGATION
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: selectedItem,
-
-        onTap: navigation,
-
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-
-          BottomNavigationBarItem(
-            icon: Icon(Icons.task_alt),
-            label: 'Create Task',
-          ),
-
-          BottomNavigationBarItem(icon: Icon(Icons.person_4), label: 'Profile'),
-        ],
       ),
     );
   }
