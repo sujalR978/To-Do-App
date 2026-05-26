@@ -129,8 +129,6 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
                     "Design Review",
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
-
-                  Icon(Icons.edit),
                 ],
               ),
             ),
