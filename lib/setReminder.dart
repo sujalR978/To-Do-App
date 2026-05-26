@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class AddReminderScreen extends StatefulWidget {
-  const AddReminderScreen({super.key});
+  final taskname;
+  const AddReminderScreen({super.key,required this.taskname});
 
   @override
   State<AddReminderScreen> createState() => _AddReminderScreenState();
