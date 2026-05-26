@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AddReminderScreen extends StatefulWidget {
   final taskname;
-  const AddReminderScreen({super.key,required this.taskname});
+  const AddReminderScreen({super.key, required this.taskname});
 
   @override
   State<AddReminderScreen> createState() => _AddReminderScreenState();
@@ -125,9 +125,9 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
-                children: const [
+                children: [
                   Text(
-                    "Design Review",
+                    widget.taskname,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                 ],
