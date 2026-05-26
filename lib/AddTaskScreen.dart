@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:intl/intl.dart';
+import 'package:popover/popover.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_do_app/TaskSaveScreen.dart';
+import 'package:to_do_app/addCategoryScreen.dart';
 
 import 'package:to_do_app/categoryFunction.dart';
 
@@ -44,7 +47,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
   final keyForm = GlobalKey<FormState>();
 
   //list
-  final List _category_list = ['work', 'shopping', 'personal'];
+  List _category_list = [];
 
   //task filed input
   final _taskName = TextEditingController();
@@ -62,6 +65,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
     SharedPreferences sp = await SharedPreferences.getInstance();
 
     test = sp.getStringList('Task') ?? [];
+    _category_list = sp.getStringList('cat') ?? [];
 
     setState(() {});
   }
@@ -283,13 +287,17 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
 
                     Padding(
                       padding: const EdgeInsets.only(right: 20, top: 20),
-
                       child: TextButton(
-                        onPressed: () {},
-
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(content: Addcategoryscreen());
+                            },
+                          );
+                        },
                         child: const Text(
                           '+ Add New',
-
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
                             color: Color.fromARGB(255, 73, 70, 168),
@@ -316,6 +324,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                             scrollDirection: Axis.horizontal,
 
                             itemCount: _category_list.length,
+
                             itemBuilder: (context, index) {
                               return categoryFunction(
                                 child: _category_list[index],
@@ -324,12 +333,25 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                                 onSelect: () => setState(() {
                                   selectedCategory = _category_list[index];
                                 }),
+                                onLongpress: () async {
+                                  setState(() {
+                                    _category_list.removeAt(index);
+                                  });
+                                },
                               );
                             },
                           ),
                         ),
                       ),
                     ],
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(right: 170, top: 10),
+                  child: Opacity(
+                    opacity: 0.5,
+                    child: Text('Long press to remove category.'),
                   ),
                 ),
 
@@ -501,44 +523,9 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     ),
                   ],
                 ),
+
                 Padding(
                   padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(246, 232, 232, 250),
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.4),
-                          offset: Offset(0, 4),
-                          spreadRadius: 2,
-                          blurRadius: 7,
-                        ),
-                      ],
-                    ),
-                    child: ListTile(
-                      leading: CircleAvatar(
-                        child: Image.asset('assets/images/prayorityIcon.png'),
-                      ),
-                      title: Text(
-                        'Priority',
-                        style: TextStyle(fontWeight: FontWeight(500)),
-                      ),
-                      subtitle: Text(
-                        'High',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight(400),
-                        ),
-                      ),
-
-                      trailing: Icon(Icons.arrow_forward_ios_rounded),
-                    ),
-                  ),
-                ),
-
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
