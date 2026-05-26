@@ -545,7 +545,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                         setState(() {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => setReminder(),
+                              builder: (context) => AddReminderScreen(),
                             ),
                           );
                         });
