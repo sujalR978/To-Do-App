@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:to_do_app/AddTaskScreen.dart';
 
 class Addcategoryscreen extends StatefulWidget {
   const Addcategoryscreen({super.key});
@@ -52,9 +53,10 @@ class _AddcategoryscreenState extends State<Addcategoryscreen> {
 
                 _category.clear();
 
-                Navigator.pop(context);
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => AddTaskScreen()),
+                );
               }
-              Navigator.pop(context);
             },
             child: const Text('Save'),
           ),
