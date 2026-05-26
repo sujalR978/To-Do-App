@@ -4,7 +4,12 @@ class AddReminderScreen extends StatefulWidget {
   final TextEditingController taskname;
   final TimeOfDay time;
   final DateTime date;
-  const AddReminderScreen({super.key, required this.taskname,required this.time,required this.date});
+  const AddReminderScreen({
+    super.key,
+    required this.taskname,
+    required this.time,
+    required this.date,
+  });
 
   @override
   State<AddReminderScreen> createState() => _AddReminderScreenState();
@@ -15,24 +20,12 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
 
   TimeOfDay selectedTime = TimeOfDay.now();
 
-  String repeatValue = "None";
-
-  String alertStyle = "Standard";
-
-  final List<String> repeatOptions = [
-    "None",
-    "Daily",
-    "Weekly",
-    "Monthly",
-    "Custom",
-  ];
-
   Future<void> pickDate() async {
     DateTime? picked = await showDatePicker(
       context: context,
       initialDate: selectedDate,
       firstDate: DateTime(2024),
-      lastDate: DateTime(2100),
+      lastDate: widget.date,
     );
 
     if (picked != null) {
@@ -45,13 +38,22 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
   Future<void> pickTime() async {
     TimeOfDay? picked = await showTimePicker(
       context: context,
-      initialTime: selectedTime,
-    );
 
+      initialTime: widget.time,
+      builder: (context, child) {
+        return MediaQuery(
+          data: MediaQuery.of(context).copyWith(alwaysUse24HourFormat: true),
+          child: child!,
+        );
+      },
+    );
     if (picked != null) {
-      setState(() {
-        selectedTime = picked;
-      });
+      // MAX TIME = 10 PM
+      if (picked.hour < widget.time.hour) {
+        setState(() {
+          selectedTime = picked;
+        });
+      }
     }
   }
 
@@ -244,144 +246,6 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
                   ),
                 ],
               ),
-            ),
-
-            const SizedBox(height: 30),
-
-            /// REPEAT
-            const Text(
-              "REPEAT",
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: Colors.grey,
-                letterSpacing: 1,
-              ),
-            ),
-
-            const SizedBox(height: 10),
-
-            SizedBox(
-              height: 45,
-
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-
-                itemCount: repeatOptions.length,
-
-                itemBuilder: (context, index) {
-                  String option = repeatOptions[index];
-
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 10),
-
-                    child: ChoiceChip(
-                      label: Text(option),
-
-                      selected: repeatValue == option,
-
-                      onSelected: (value) {
-                        setState(() {
-                          repeatValue = option;
-                        });
-                      },
-                    ),
-                  );
-                },
-              ),
-            ),
-
-            const SizedBox(height: 30),
-
-            /// ALERT STYLE
-            const Text(
-              "ALERT STYLE",
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                color: Colors.grey,
-                letterSpacing: 1,
-              ),
-            ),
-
-            const SizedBox(height: 10),
-
-            Row(
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        alertStyle = "Standard";
-                      });
-                    },
-
-                    child: Container(
-                      padding: const EdgeInsets.all(20),
-
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-
-                        borderRadius: BorderRadius.circular(16),
-
-                        border: Border.all(
-                          color: alertStyle == "Standard"
-                              ? Colors.blue
-                              : Colors.transparent,
-                          width: 2,
-                        ),
-                      ),
-
-                      child: Column(
-                        children: const [
-                          Icon(Icons.notifications),
-
-                          SizedBox(height: 10),
-
-                          Text("Standard"),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-
-                const SizedBox(width: 15),
-
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        alertStyle = "Persistent";
-                      });
-                    },
-
-                    child: Container(
-                      padding: const EdgeInsets.all(20),
-
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-
-                        borderRadius: BorderRadius.circular(16),
-
-                        border: Border.all(
-                          color: alertStyle == "Persistent"
-                              ? Colors.blue
-                              : Colors.transparent,
-                          width: 2,
-                        ),
-                      ),
-
-                      child: Column(
-                        children: const [
-                          Icon(Icons.priority_high),
-
-                          SizedBox(height: 10),
-
-                          Text("Persistent"),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
             ),
 
             const SizedBox(height: 40),
