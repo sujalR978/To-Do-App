@@ -4,11 +4,14 @@ class categoryFunction extends StatefulWidget {
   final String child;
   final bool isSelected;
   final VoidCallback onSelect;
+  final VoidCallback onLongpress;
+
   const categoryFunction({
     super.key,
     required this.child,
     required this.isSelected,
     required this.onSelect,
+    required this.onLongpress,
   });
 
   @override
@@ -20,17 +23,22 @@ class _categoryFunctionState extends State<categoryFunction> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
-      child: Container(
+
+      child: GestureDetector(
+        onLongPress: widget.onLongpress,
+
         child: ChoiceChip(
           label: Text(
             widget.child,
-            style: TextStyle(fontWeight: FontWeight.w600),
+            style: const TextStyle(fontWeight: FontWeight.w600),
           ),
 
           showCheckmark: false,
+
           labelStyle: TextStyle(
             color: widget.isSelected ? Colors.white : Colors.black,
           ),
+
           selected: widget.isSelected,
 
           selectedColor: const Color.fromARGB(241, 44, 46, 163),
@@ -41,6 +49,7 @@ class _categoryFunctionState extends State<categoryFunction> {
             Icons.deblur,
             color: widget.isSelected ? Colors.white : Colors.black,
           ),
+
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(50),
           ),
