@@ -53,9 +53,7 @@ class _AddcategoryscreenState extends State<Addcategoryscreen> {
 
                 _category.clear();
 
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => AddTaskScreen()),
-                );
+                Navigator.pop(context);
               }
             },
             child: const Text('Save'),
