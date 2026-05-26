@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AddReminderScreen extends StatefulWidget {
-  final String taskname;
-  const AddReminderScreen({super.key, required this.taskname});
+  final TextEditingController taskname;
+  final TimeOfDay time;
+  final DateTime date;
+  const AddReminderScreen({super.key, required this.taskname,required this.time,required this.date});
 
   @override
   State<AddReminderScreen> createState() => _AddReminderScreenState();
@@ -127,7 +129,7 @@ class _AddReminderScreenState extends State<AddReminderScreen> {
 
                 children: [
                   Text(
-                    widget.taskname,
+                    widget.taskname.text,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                   ),
                 ],
