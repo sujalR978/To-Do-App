@@ -335,8 +335,22 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                                   selectedCategory = _category_list[index];
                                 }),
                                 onLongpress: () async {
-                                  setState(() {
-                                    _category_list.removeAt(index);
+                                  setState(() async {
+                                    SharedPreferences sp =
+                                        await SharedPreferences.getInstance();
+
+                                    List<String> catList =
+                                        sp.getStringList('cat') ?? [];
+
+                                    catList.removeAt(index);
+
+                                    await sp.setStringList('cat', catList);
+
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (_) => AddTaskScreen(),
+                                      ),
+                                    );
                                   });
                                 },
                               );
@@ -542,14 +556,21 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                     ),
                     child: ListTile(
                       onTap: () {
-                        setState(() {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  AddReminderScreen(taskname: _taskName.text),
-                            ),
-                          );
-                        });
+                        if (keyForm.currentState!.validate() ||
+                            _time != TimeOfDay.now() ||
+                            _date != DateTime.now()) {
+                          setState(() {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => AddReminderScreen(
+                                  taskname: _taskName,
+                                  time: _time,
+                                  date: _date,
+                                ),
+                              ),
+                            );
+                          });
+                        }
                       },
                       leading: Image.asset(
                         'assets/images/Reminder.png',
