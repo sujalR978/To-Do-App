@@ -7,6 +7,7 @@ import 'package:to_do_app/TaskSaveScreen.dart';
 import 'package:to_do_app/addCategoryScreen.dart';
 
 import 'package:to_do_app/categoryFunction.dart';
+import 'package:to_do_app/setReminder.dart';
 
 class AddTaskScreen extends StatefulWidget {
   const AddTaskScreen({super.key});
@@ -540,6 +541,15 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                       ],
                     ),
                     child: ListTile(
+                      onTap: () {
+                        setState(() {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => setReminder(),
+                            ),
+                          );
+                        });
+                      },
                       leading: Image.asset(
                         'assets/images/Reminder.png',
                         width: 40,
