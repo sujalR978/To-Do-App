@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(AddNotePage());
-}
+
 
 class AddNotePage extends StatefulWidget {
   @override
