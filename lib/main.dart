@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/SplashScreen.dart';
-import 'package:to_do_app/add%20notes.dart';
 
 void main() {
-  runApp( AddNotePage());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
